@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Page not found — Archie Ballinger</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141415'/%3E%3Ctext x='32' y='46' font-family='Helvetica,Arial,sans-serif' font-size='40' font-weight='600' fill='%2320B289' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500&family=Inter:wght@400;500&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: rgb(249, 249, 250);
+    --grey-border: rgb(228, 228, 241);
+    --grey-text: rgb(101, 101, 114);
+    --main: rgb(20, 20, 21);
+    --accent: rgb(32, 178, 137);
+    --btn-color: rgba(251, 244, 244, 0.9);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: rgb(10, 10, 11);
+      --grey-border: rgb(33, 33, 38);
+      --grey-text: rgb(141, 141, 154);
+      --main: rgb(245, 245, 240);
+      --accent: rgb(45, 212, 164);
+      --btn-color: rgb(39, 39, 46);
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--main);
+    font-family: "Inter", sans-serif; min-height: 100vh;
+    display: flex; align-items: center; justify-content: center; padding: 32px;
+  }
+  .wrap { max-width: 46ch; display: flex; flex-direction: column; gap: 26px; }
+  .code {
+    font-family: "DM Mono", monospace; font-size: 14px;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
+  }
+  h1 {
+    font-family: "Inter Tight", sans-serif; font-weight: 500;
+    font-size: clamp(38px, 7vw, 76px); line-height: 1.02; letter-spacing: -0.4px;
+    text-wrap: balance;
+  }
+  p { color: var(--grey-text); font-size: 17px; line-height: 1.6; }
+  .links { display: flex; gap: 12px; flex-wrap: wrap; }
+  .pill-btn {
+    display: inline-block; padding: 10px 18px; border-radius: 40px;
+    background: var(--btn-color); border: 1px solid var(--grey-border);
+    color: var(--main); text-decoration: none; font-size: 14px;
+  }
+  .pill-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="code">Error 404</span>
+    <h1>That page has moved on.</h1>
+    <p>The address you followed does not exist on this site. The work is all still here, one link away.</p>
+    <div class="links">
+      <a class="pill-btn" href="index.html">Back to the folio</a>
+      <a class="pill-btn" href="mailto:Archie.ball0019@gmail.com">Email me</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archie Ballinger, Curriculum Vitae</title>
+<meta name="description" content="Curriculum vitae of Archie Ballinger, industrial designer: education, experience, skills and selected projects.">
+<meta name="author" content="Archie Ballinger">
+<meta name="theme-color" content="#F9F9FA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141415" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Archie Ballinger, Curriculum Vitae">
+<meta property="og:description" content="Industrial designer. Education, experience, skills and selected projects.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141415'/%3E%3Ctext x='32' y='46' font-family='Helvetica,Arial,sans-serif' font-size='40' font-weight='600' fill='%2320B289' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500&family=Inter:wght@400;500&family=DM+Mono&display=swap" rel="stylesheet">
+<script src="./resume-data.js"></script>
+<style>
+  /* ===== Color styles (Folio design system — shared with the landing page) ===== */
+  :root {
+    --bg: rgb(249, 249, 250);
+    --grey-back: rgb(244, 244, 246);
+    --grey-border: rgb(228, 228, 241);
+    --grey-border-label: rgb(218, 218, 231);
+    --grey-text-2: rgb(133, 133, 147);
+    --grey-text: rgb(101, 101, 114);
+    --main: rgb(20, 20, 21);
+    --primary: rgb(255, 77, 46);
+    --accent: rgb(32, 178, 137);        /* sea green — matches the site's glow */
+    --btn-color: rgba(251, 244, 244, 0.9);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: rgb(10, 10, 11);
+      --grey-back: rgb(20, 20, 21);
+      --grey-border: rgb(33, 33, 38);
+      --grey-border-label: rgb(46, 46, 56);
+      --grey-text-2: rgb(108, 108, 122);
+      --grey-text: rgb(141, 141, 154);
+      --main: rgb(245, 245, 240);
+      --btn-color: rgb(39, 39, 46);
+      --accent: rgb(45, 212, 164);
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--main); font-family: "Inter", sans-serif; }
+
+  /* ===== Text styles ===== */
+  .heading-xxl { font-family: "Inter Tight", sans-serif; font-weight: 500; font-size: clamp(52px, 8vw, 120px); line-height: 1em; letter-spacing: -0.3px; }
+  .heading-2 { font-family: "Inter Tight", sans-serif; font-weight: 500; font-size: clamp(30px, 3.6vw, 52px); line-height: 1.1em; letter-spacing: -0.2px; }
+  .heading-3 { font-size: 20px; line-height: 1.3em; font-weight: 500; }
+  .heading-4 { font-size: 18px; line-height: 1.4em; font-weight: 500; }
+  .body-l { font-size: clamp(18px, 1.8vw, 24px); line-height: 1.5em; letter-spacing: 0.01em; }
+  .body-s { font-size: 16px; line-height: 1.6em; }
+  .mono { font-family: "DM Mono", monospace; font-size: 14px; line-height: 1.4em; color: var(--grey-text); }
+  a { color: inherit; }
+
+  /* ===== Shell ===== */
+  .main { max-width: 1920px; margin: 0 auto; padding: 24px 24px 0; display: flex; flex-direction: column; align-items: center; }
+
+  /* ===== Hero ===== */
+  .hero { width: 100%; padding: 200px 0 24px; position: relative; display: flex; flex-direction: column; justify-content: flex-end; }
+  .hero .logo { position: absolute; top: 0; left: 0; font-weight: 500; text-decoration: none; }
+  .hero .social { position: absolute; top: 0; right: 0; display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
+  .pill-btn {
+    display: inline-block; padding: 10px 18px; border-radius: 40px;
+    background: var(--btn-color); border: 1px solid var(--grey-border);
+    color: var(--main); text-decoration: none; font-size: 14px; text-align: center;
+    cursor: pointer; font-family: "Inter", sans-serif;
+  }
+  .hero-text { display: flex; flex-direction: column; gap: 32px; padding-bottom: 36px; }
+  .hero-text p { max-width: 60ch; color: var(--grey-text); }
+  .hero-meta {
+    display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center;
+    border-top: 1px solid var(--grey-border); padding-top: 22px;
+    font-family: "DM Mono", monospace; font-size: 14px;
+  }
+  .hero-meta a { text-decoration: none; }
+  .hero-meta a:hover { color: var(--accent); }
+  .hero-meta .sep { color: var(--grey-text-2); font-size: 11px; }
+  .hero-meta .place { color: var(--grey-text-2); }
+
+  /* ===== CV body: sticky profile left, scrolling cards right ===== */
+  .cv { width: 100%; display: flex; gap: 16px; align-items: flex-start; }
+  .cv-side { position: sticky; top: 16px; width: 34%; padding: 16px 0; }
+  .cv-main { flex: 1; padding: 16px 0; display: flex; flex-direction: column; gap: 16px; }
+  .card {
+    background: var(--grey-back); border: 1px solid var(--grey-border);
+    border-radius: 20px; padding: clamp(28px, 3vw, 48px);
+    display: flex; flex-direction: column; gap: 32px;
+  }
+  .label {
+    align-self: center; font-family: "DM Mono", monospace; font-size: 14px;
+    padding: 6px 14px; border-radius: 40px; border: 1px solid var(--grey-border-label); color: var(--grey-text);
+  }
+  .vline { width: 1px; height: 32px; background: var(--grey-border-label); align-self: center; }
+  .card p.body-s { color: var(--grey-text); }
+  .facts { display: flex; flex-direction: column; gap: 8px; }
+
+  /* Entries */
+  .entries { display: flex; flex-direction: column; gap: 8px; }
+  .entry { display: flex; flex-direction: column; gap: 8px; }
+  /* Title on its own line, date underneath — consistent at every width */
+  .entry-top { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+  .entry-top .mono { color: var(--grey-text-2); }
+  .entry .org { font-family: "DM Mono", monospace; font-size: 13px; color: var(--accent); }
+  .entry p { color: var(--grey-text); max-width: 70ch; }
+
+  /* Chips + award rows */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font-family: "DM Mono", monospace; font-size: 13px; color: var(--grey-text); border: 1px solid var(--grey-border-label); border-radius: 40px; padding: 5px 12px; white-space: nowrap; }
+  .rows { display: flex; flex-direction: column; }
+  .rows > div {
+    display: flex; flex-wrap: wrap; gap: 4px 16px; justify-content: space-between;
+    padding: 12px 0; border-bottom: 1px solid var(--grey-border-label);
+    font-family: "DM Mono", monospace; font-size: 14px;
+  }
+  .rows > div:last-child { border-bottom: 0; }
+  .rows span:last-child { color: var(--grey-text-2); }
+
+  /* ===== Contact + footer ===== */
+  .contact { width: 100%; padding: 140px 0; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 36px; }
+  .contact h2 { max-width: 20ch; }
+  .contact-links { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  footer {
+    width: 100%; max-width: 1920px; margin: 0 auto; padding: 32px 24px;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+    border-top: 1px solid var(--grey-border);
+  }
+  footer a { text-decoration: none; }
+
+  /* ===== Movement (same vocabulary as the landing page) ===== */
+  .hchar { display: inline-block; opacity: 0; filter: blur(10px); transform: translateY(0.08em); animation: hchar-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+  @keyframes hchar-in { to { opacity: 1; filter: blur(0); transform: none; } }
+  .load-fade { opacity: 0; transform: translateY(24px); animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+  @keyframes fade-up { to { opacity: 1; transform: none; } }
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+  .reveal.in { opacity: 1; transform: none; }
+  /* Download button — sea-green light travelling around the border */
+  .glow-btn {
+    position: relative; z-index: 0; overflow: hidden; border-radius: 40px;
+    box-shadow: 0 0 26px -8px rgba(32, 178, 137, 0.55);
+  }
+  .glow-btn::before {
+    content: ""; position: absolute; z-index: -2; left: 50%; top: 50%;
+    width: 320%; aspect-ratio: 1 / 1; pointer-events: none;
+    background: conic-gradient(from 0deg, transparent 0deg, transparent 250deg,
+      rgba(32, 178, 137, 0.45) 300deg, rgb(32, 178, 137) 330deg, transparent 360deg);
+    transform: translate(-50%, -50%) rotate(0deg);
+    animation: orbit 3.2s linear infinite;
+  }
+  .glow-btn::after {
+    content: ""; position: absolute; z-index: -1; inset: 1.5px;
+    border-radius: inherit; background: var(--btn-color); pointer-events: none;
+  }
+  @keyframes orbit { to { transform: translate(-50%, -50%) rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) {
+    .hchar, .load-fade { animation: none; opacity: 1; filter: none; transform: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .glow-btn::before { animation: none; }
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 1000px) {
+    .cv { flex-direction: column; }
+    .cv-side { position: static; width: 100%; }
+    .hero { padding-top: 170px; }
+  }
+  @media (max-width: 640px) {
+    .hero .social { top: 44px; left: 0; right: 0; justify-content: flex-start; }
+  }
+
+  /* ===== Print — a clean one-piece CV on paper ===== */
+  @media print {
+    @page { margin: 14mm; }
+    body { background: #fff; color: #111; }
+    .hero { padding: 0 0 18px; }
+    .hero .social, .contact-links, footer, .glow-btn { display: none !important; }
+    .hero .logo { position: static; }
+    .heading-xxl { font-size: 34px; }
+    .cv { display: block; }
+    .cv-side { position: static; width: 100%; padding: 0; }
+    .cv-main { padding: 0; }
+    .card { background: #fff; border: 0; border-top: 1px solid #bbb; border-radius: 0; padding: 14px 0; gap: 16px; break-inside: avoid; }
+    .label { align-self: flex-start; border: 0; padding: 0; color: #111; font-weight: 500; }
+    .vline { display: none; }
+    .entry, .rows > div { break-inside: avoid; }
+    .contact { padding: 18px 0 0; text-align: left; align-items: flex-start; }
+    .hchar, .load-fade, .reveal { opacity: 1 !important; transform: none !important; filter: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <a class="logo load-fade" href="index.html" style="animation-delay: 0.9s;">Archie Ballinger</a>
+    <div class="social load-fade" style="animation-delay: 1.05s;">
+      <a class="pill-btn" href="index.html">&#8592; Back to folio</a>
+      <a class="pill-btn" href="https://www.linkedin.com/in/archie-ballinger-32a596300/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="pill-btn" href="mailto:Archie.ball0019@gmail.com">Email</a>
+    </div>
+    <div class="hero-text">
+      <h1 class="heading-xxl" id="heroTitle">Curriculum Vitae</h1>
+      <p class="body-l load-fade" style="animation-delay: 1.2s;">Industrial designer working on safety-critical and sustainability problems, from research and electronics to prototypes that actually work.</p>
+      <div class="hero-meta load-fade" style="animation-delay: 1.32s;">
+        <a href="mailto:Archie.ball0019@gmail.com">Archie.ball0019@gmail.com</a>
+        <span class="sep">&#10022;</span>
+        <a href="tel:+61478717063">0478 717 063</a>
+        <span class="sep">&#10022;</span>
+        <a href="https://www.linkedin.com/in/archie-ballinger-32a596300/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="sep">&#10022;</span>
+        <span class="place">Coburg, Melbourne VIC</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CV BODY ============ -->
+  <section class="cv">
+
+    <!-- Sticky profile panel -->
+    <div class="cv-side">
+      <div class="card reveal">
+        <span class="label">Profile</span>
+        <p class="body-s">Industrial designer with a Bachelor of Industrial Design (Honours) from RMIT, majoring in Advanced Manufacturing, two years&rsquo; industrial design experience across freelance client work and a studio technician role at RMIT, and seven years&rsquo; experience as a swim coach, surf lifesaver and volunteer. I chose industrial design because I wanted to work in a field where I could be creative, practical and help people through design. I work end to end, from user research and CAD through electronics, interface and working prototypes, and I am especially interested in medical technology and designing products that can make people&rsquo;s lives easier. I have strong experience working with people, supporting children of all abilities, staying calm under pressure and being part of a community-focused team.</p>
+        <div class="vline"></div>
+        <div class="facts">
+          <span class="mono">(B. Industrial Design Honours, RMIT)</span>
+          <span class="mono">(Advanced Manufacturing major)</span>
+          <span class="mono">(Freelancing via Ballinger Technology)</span>
+          <span class="mono">(Based in Melbourne, VIC)</span>
+        </div>
+        <div class="vline"></div>
+        <a class="pill-btn glow-btn" data-resume-dl href="#" style="align-self: center;">Download PDF</a>
+      </div>
+    </div>
+
+    <!-- Scrolling cards -->
+    <div class="cv-main">
+
+      <div class="card reveal">
+        <span class="label">Experience</span>
+        <div class="entries">
+
+          <div class="entry">
+            <div class="entry-top">
+              <h3 class="heading-3">Freelance Industrial Designer, Victoria Police</h3>
+              <span class="mono">May 2026 to Present</span>
+            </div>
+            <div class="org">In partnership with Ballinger Technology</div>
+            <p class="body-s">Designing a housing unit for CAN bus modules used in Victoria Police vehicles: a durable in-vehicle enclosure resolved for fit, function and ease of installation.</p>
+          </div>
+          <div class="vline"></div>
+
+          <div class="entry">
+            <div class="entry-top">
+              <h3 class="heading-3">Freelance Industrial Designer, Western Australia Police</h3>
+              <span class="mono">Mar 2026 to Present</span>
+            </div>
+            <div class="org">In partnership with Ballinger Technology &amp; Stalker Radar</div>
+            <p class="body-s">Designing a mounting system for laser alignment with heads-up display and calibration, turning a functional requirement into a production-ready solution, resolving component fit and manufacturing constraints.</p>
+          </div>
+          <div class="vline"></div>
+
+          <div class="entry">
+            <div class="entry-top">
+              <h3 class="heading-3">Pool Supervisor &amp; Squad Coach, Elite Swimming</h3>
+              <span class="mono">Nov 2019 to Present</span>
+            </div>
+            <p class="body-s">Coach developing swimmers across all ages and abilities, including children with disability, while running daily pool operations, staff coordination and incident response.</p>
+          </div>
+          <div class="vline"></div>
+
+          <div class="entry">
+            <div class="entry-top">
+              <h3 class="heading-3">Studio Technician, RMIT</h3>
+              <span class="mono">Feb 2022 to Nov 2024</span>
+            </div>
+            <p class="body-s">Supported students and staff across the industrial design studio: 3D printing, 3D scanning, technical troubleshooting, equipment setup and workshop safety.</p>
+          </div>
+          <div class="vline"></div>
+
+          <div class="entry">
+            <div class="entry-top">
+              <h3 class="heading-3">Tennis Coach, West Brunswick Tennis</h3>
+              <span class="mono">Jan 2021 to Sep 2022</span>
+            </div>
+            <p class="body-s">Coached children and developing players, adapting communication and instruction to different ages, abilities and learning needs.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <span class="label">Education</span>
+        <div class="entry">
+          <div class="entry-top">
+            <h3 class="heading-3">Bachelor of Industrial Design (Honours)</h3>
+            <span class="mono">Feb 2022 to Jun 2026</span>
+          </div>
+          <div class="org">RMIT, Melbourne &middot; Major in Advanced Manufacturing</div>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <span class="label">Capabilities</span>
+        <div class="chips">
+          <span class="chip">User research</span>
+          <span class="chip">Sketching</span>
+          <span class="chip">CAD &middot; Fusion 360</span>
+          <span class="chip">KeyShot</span>
+          <span class="chip">Blender</span>
+          <span class="chip">Rendering &amp; CMF</span>
+          <span class="chip">3D printing &amp; scanning</span>
+          <span class="chip">Model-making</span>
+          <span class="chip">Design for manufacture</span>
+          <span class="chip">PCB design &amp; build</span>
+          <span class="chip">Arduino firmware</span>
+          <span class="chip">UX &amp; UI design</span>
+          <span class="chip">Systems &amp; service design</span>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <span class="label">Volunteering</span>
+        <div class="entries">
+          <div class="entry">
+            <div class="entry-top">
+              <h3 class="heading-4">Surf Lifesaver, Woolamai SLSC</h3>
+              <span class="mono">2015 to 2022</span>
+            </div>
+            <p class="body-s">Patrol duties, beach safety and emergency response; Patrol Captain in 2021, coordinating team responsibilities and safety standards.</p>
+          </div>
+          <div class="vline"></div>
+          <div class="entry">
+            <div class="entry-top">
+              <h3 class="heading-4">Foodbank</h3>
+              <span class="mono">2018 to 2020</span>
+            </div>
+            <p class="body-s">Packed food orders for community organisations supporting food-relief programs.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <span class="label">Fundraising</span>
+        <div class="entries">
+          <div class="entry">
+            <div class="entry-top">
+              <h3 class="heading-4">Laps for Life</h3>
+              <span class="mono">2020 to 2026</span>
+            </div>
+            <p class="body-s">Annual swimming-based fundraising challenge raising funds and awareness for mental health support, using a competitive swimming background to contribute to community wellbeing.</p>
+          </div>
+          <div class="vline"></div>
+          <div class="entry">
+            <div class="entry-top">
+              <h3 class="heading-4">Movember</h3>
+              <span class="mono">2020 to 2026</span>
+            </div>
+            <p class="body-s">Annual fundraising for men&rsquo;s health (mental health, suicide prevention and cancer awareness) through personal participation and ongoing support of the campaign.</p>
+          </div>
+          <div class="vline"></div>
+          <div class="entry">
+            <div class="entry-top">
+              <h3 class="heading-4">The Push-Up Challenge Australia</h3>
+              <span class="mono">2026</span>
+            </div>
+            <p class="body-s">Completed a physical endurance challenge raising awareness for mental health, sustained across the full campaign period.</p>
+          </div>
+          <div class="vline"></div>
+          <div class="entry">
+            <div class="entry-top">
+              <h3 class="heading-4">Lifeline</h3>
+              <span class="mono">2024</span>
+            </div>
+            <p class="body-s">Fundraised for crisis support and suicide prevention services, supporting people through acute mental health need.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <span class="label">Awards &amp; certifications</span>
+        <div class="rows">
+          <div><span>Minister for Emergency Services Award for Bravery</span><span>2016</span></div>
+          <div><span>Woolamai Patrol Captain</span><span>2021</span></div>
+          <div><span>School Captain, Brunswick Secondary College</span><span>2020</span></div>
+          <div><span>National-level swimmer, Australian Championships</span><span>2019&ndash;20</span></div>
+          <div><span>Duke of Edinburgh&rsquo;s International Award</span><span>2019</span></div>
+          <div><span>Victorian Young Leaders to China</span><span>2018</span></div>
+          <div><span>CPR &amp; First Aid Certificate</span><span>2026</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <span class="label reveal">Contact</span>
+    <h2 class="heading-2 reveal">References available on request.</h2>
+    <div class="mono reveal">Archie.ball0019@gmail.com &middot; 0478 717 063</div>
+    <div class="contact-links reveal">
+      <a class="pill-btn glow-btn" data-resume-dl href="#">Download PDF</a>
+      <a class="pill-btn" href="index.html#work">View the work</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <span class="mono">&copy; 2026 Archie Ballinger &middot; Melbourne, VIC</span>
+  <div style="display:flex; gap:24px;">
+    <a class="mono" href="https://www.linkedin.com/in/archie-ballinger-32a596300/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="mono" href="index.html">Folio</a>
+    <a class="mono" href="mailto:Archie.ball0019@gmail.com">Email</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Hero heading — letter-by-letter blur type-in, split word-safe */
+  var title = document.getElementById('heroTitle');
+  if (title && !reduced) {
+    var text = title.textContent;
+    title.textContent = '';
+    title.setAttribute('aria-label', text);
+    var i = 0;
+    text.split(' ').forEach(function (word, wi) {
+      if (wi) { title.appendChild(document.createTextNode(' ')); i++; }
+      var w = document.createElement('span');
+      w.style.display = 'inline-block';
+      w.style.whiteSpace = 'nowrap';
+      w.setAttribute('aria-hidden', 'true');
+      Array.prototype.forEach.call(word, function (ch) {
+        var s = document.createElement('span');
+        s.className = 'hchar';
+        s.textContent = ch;
+        s.style.animationDelay = (0.15 + i * 0.045) + 's';
+        w.appendChild(s);
+        i++;
+      });
+      title.appendChild(w);
+    });
+  }
+
+  /* Fade-up reveals on scroll */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduced) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* PDF download — builds a blob from the base64 in resume-data.js */
+  var url = null;
+  document.querySelectorAll('[data-resume-dl]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (!window.RESUME_PDF_B64) { window.print(); return; }
+      if (!url) {
+        var bin = atob(window.RESUME_PDF_B64);
+        var buf = new Uint8Array(bin.length);
+        for (var i = 0; i < bin.length; i++) { buf[i] = bin.charCodeAt(i); }
+        url = URL.createObjectURL(new Blob([buf], { type: 'application/pdf' }));
+      }
+      var dl = document.createElement('a');
+      dl.href = url;
+      dl.download = window.RESUME_FILENAME || 'Archie Ballinger Resume.pdf';
+      document.body.appendChild(dl);
+      dl.click();
+      dl.remove();
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

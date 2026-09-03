@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Archie Ballinger, Industrial Designer</title>
+<meta name="description" content="Portfolio of Archie Ballinger, industrial designer working on medical devices, sustainable product systems and 3D visualisation. Featuring IMPACT, a real-time concussion-detection mouthguard.">
+<meta name="author" content="Archie Ballinger">
+<meta name="theme-color" content="#F9F9FA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141415" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Archie Ballinger, Industrial Designer">
+<meta property="og:description" content="Medical devices, sustainable product systems and 3D visualisation.">
+<meta property="og:image" content="images/uvc-card.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141415'/%3E%3Ctext x='32' y='46' font-family='Helvetica,Arial,sans-serif' font-size='40' font-weight='600' fill='%2320B289' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500&family=Inter:wght@400;500&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+  /* ===== Color styles (Folio design system) ===== */
+  :root {
+    --bg: rgb(249, 249, 250);            /* /Bg */
+    --grey-back: rgb(244, 244, 246);     /* /Grey back */
+    --grey-border: rgb(228, 228, 241);   /* /Grey border */
+    --grey-border-label: rgb(218, 218, 231); /* /Grey border label */
+    --grey-text-2: rgb(133, 133, 147);   /* /Grey text 2 */
+    --grey-text: rgb(101, 101, 114);     /* /Grey text */
+    --main: rgb(20, 20, 21);             /* /Main */
+    --primary: rgb(255, 77, 46);         /* /Primary */
+    --green: rgb(0, 255, 157);           /* /Green */
+    --btn-color: rgba(251, 244, 244, 0.9); /* /Btn color */
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: rgb(10, 10, 11);
+      --grey-back: rgb(20, 20, 21);
+      --grey-border: rgb(33, 33, 38);
+      --grey-border-label: rgb(46, 46, 56);
+      --grey-text-2: rgb(108, 108, 122);
+      --grey-text: rgb(141, 141, 154);
+      --main: rgb(245, 245, 240);
+      --btn-color: rgb(39, 39, 46);
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html { background: var(--bg); }
+  body {
+    background: transparent;
+    color: var(--main);
+    font-family: "Inter", sans-serif;
+  }
+
+  /* ===== Studio backdrop =====
+     A fixed photograph behind the whole landing page. It is sharp at the top of
+     the page and blurs out as you scroll, while the veil above it thickens
+     towards the page colour so text keeps its contrast. Both values are driven
+     from one scroll handler writing --bg-blur and --bg-veil. */
+  :root {
+    --bg-progress: 0;      /* 0 at the top of the page, 1 once scrolled past the hero */
+    --blur-max: 26px;
+    --veil-base: 0.80;     /* how much page colour sits over the photo at the top */
+    --veil-max: 0.96;
+  }
+  .bg-photo, .bg-veil { position: fixed; inset: 0; pointer-events: none; }
+  .bg-photo {
+    z-index: -2;
+    background: url("images/studio-backdrop.jpg") center 58% / cover no-repeat;
+    filter: blur(calc(var(--blur-max) * var(--bg-progress)));
+    transform: scale(1.08);          /* hides the soft edge the blur creates */
+    will-change: filter;
+  }
+  .bg-veil {
+    z-index: -1;
+    background: var(--bg);
+    opacity: calc(var(--veil-base) + (var(--veil-max) - var(--veil-base)) * var(--bg-progress));
+  }
+
+  /* ===== Text styles ===== */
+  .heading-xxl { font-family: "Inter Tight", sans-serif; font-weight: 500; font-size: clamp(56px, 8.5vw, 132px); line-height: 1em; letter-spacing: -0.3px; }
+  .heading-2   { font-family: "Inter Tight", sans-serif; font-weight: 500; font-size: clamp(32px, 4vw, 56px); line-height: 1.1em; letter-spacing: -0.2px; }
+  .heading-3   { font-size: 24px; line-height: 32px; }
+  .heading-4   { font-size: 18px; line-height: 1.4em; }
+  .body-l      { font-size: clamp(18px, 1.8vw, 24px); line-height: 1.5em; letter-spacing: 0.01em; }
+  .body-s      { font-size: 16px; line-height: 1.6em; }
+  .mono        { font-family: "DM Mono", monospace; font-size: 14px; line-height: 1.35em; color: var(--grey-text); }
+
+  /* ===== Page shell ===== */
+  .main { max-width: 1920px; margin: 0 auto; padding: 24px 24px 0; display: flex; flex-direction: column; align-items: center; }
+
+  /* ===== Hero ===== */
+  .hero { width: 100%; border-radius: 12px; padding: 200px 0 24px; position: relative; display: flex; flex-direction: column; justify-content: flex-end; }
+  .hero .logo { position: absolute; top: 0; left: 0; font-weight: 500; }
+  .hero .social { position: absolute; top: 0; right: 0; display: flex; flex-direction: column; gap: 16px; align-items: flex-end; }
+  .pill-btn {
+    display: inline-block; padding: 10px 18px; border-radius: 40px;
+    background: var(--btn-color); border: 1px solid var(--grey-border);
+    color: var(--main); text-decoration: none; font-size: 14px; text-align: center;
+    cursor: pointer; font-family: "Inter", sans-serif;
+  }
+  .hero-text { display: flex; flex-direction: column; gap: 36px; padding-bottom: 36px; }
+  .hero-text h1 { max-width: 1060px; }
+  .hero-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+  .hero-row p { max-width: 896px; color: var(--grey-text); }
+  .scroll-pill { display: flex; align-items: center; gap: 20px; padding: 8px; border-radius: 40px; white-space: nowrap; }
+  .scroll-pill .arrow { width: 32px; height: 32px; display: grid; place-items: center; }
+
+  /* ===== Works grid ===== */
+  .works { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .work-card {
+    position: relative; height: clamp(480px, 42vw, 725px); border-radius: 20px; overflow: hidden;
+    border: 1px solid var(--grey-border); display: block; color: inherit; text-decoration: none;
+    cursor: pointer; text-align: left; background: none; font-family: inherit; width: 100%;
+  }
+  .work-card .img {
+    position: absolute; inset: 0 0 64px 0; background: var(--grey-back);
+    display: grid; place-items: center;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .work-card:hover .img { transform: scale(1.02); }
+  .work-card .bar {
+    position: absolute; left: 0; right: 0; bottom: 0; min-height: 64px;
+    background: var(--grey-back); border-top: 1px solid var(--grey-border); border-radius: 0 0 15px 15px;
+    padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  /* description hidden until hover — bar grows upward over the image */
+  .work-card .desc {
+    color: var(--grey-text);
+    max-height: 0; opacity: 0; transform: translateY(8px); overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease 0.05s, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .work-card:hover .desc, .work-card:focus-visible .desc { max-height: 4.8em; opacity: 1; transform: none; }
+  /* meta ticker pill — fades in at the card's top-right on hover */
+  .ticker-pill {
+    position: absolute; top: 14px; right: 14px; height: 36px; max-width: min(280px, 60%);
+    display: flex; align-items: center; overflow: hidden; border-radius: 40px;
+    background: rgba(20, 20, 21, 0.6); /* fallback for older Safari */
+    background: color-mix(in srgb, var(--main) 55%, transparent);
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    opacity: 0; transition: opacity 0.35s ease; pointer-events: none;
+  }
+  .work-card:hover .ticker-pill, .work-card:focus-visible .ticker-pill { opacity: 1; }
+  .ticker-track {
+    display: inline-flex; white-space: nowrap; will-change: transform;
+    animation: ticker-scroll 16s linear infinite;
+  }
+  .ticker-track span {
+    font-family: "DM Mono", monospace; font-size: 13px; color: var(--bg);
+    padding: 0 11px; flex-shrink: 0;
+  }
+  @keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .placeholder-tag { font-family: "DM Mono", monospace; font-size: 13px; color: var(--grey-text-2); border: 1px dashed var(--grey-border-label); border-radius: 8px; padding: 8px 14px; }
+
+  /* ===== About ===== */
+  .about-section { width: 100%; display: flex; gap: 16px; align-items: flex-start; }
+  .img-clients {
+    position: sticky; top: 0; width: 66%; height: 100vh;
+    padding: 16px 0; display: flex; flex-direction: column; gap: 16px;
+  }
+  .img-clients .portrait {
+    flex: 1; border-radius: 20px; border: 1px solid var(--grey-border);
+    background: var(--grey-back); display: grid; place-items: center;
+    overflow: hidden;
+  }
+  /* The slot takes the photograph's own shape, so the whole frame shows:
+     nothing cropped, nothing enlarged past the source. */
+  .img-clients .portrait.shot {
+    flex: none;
+    aspect-ratio: 704 / 1070;
+    width: min(100%, calc((100vh - 150px) * 704 / 1070), 704px);
+    height: auto;
+    margin-left: auto; margin-right: auto;
+  }
+  .img-clients .portrait > img {
+    width: 100%; height: 100%; object-fit: cover;
+    display: block; border-radius: inherit;
+  }
+  .img-clients .portrait.missing > img { display: none; }
+  .img-clients .portrait.shot > .placeholder-tag { display: none; }
+  .img-clients .portrait.missing > .placeholder-tag { display: inline-block; }
+  .ticker { display: flex; gap: 48px; overflow: hidden; justify-content: center; flex-wrap: wrap; }
+  .about-content { flex: 1; padding: 16px 0; display: flex; flex-direction: column; gap: 16px; }
+  .card {
+    background: var(--grey-back); border: 1px solid var(--grey-border);
+    border-radius: 20px; padding: clamp(32px, 4vw, 64px); display: flex; flex-direction: column; align-items: center; gap: 48px;
+  }
+  .card .inner { max-width: 316px; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 48px; }
+  .label {
+    align-self: center; font-family: "DM Mono", monospace; font-size: 14px;
+    padding: 6px 14px; border-radius: 40px; border: 1px solid var(--grey-border-label); color: var(--grey-text);
+  }
+  .vline { width: 1px; height: 40px; background: var(--grey-border-label); }
+  .facts { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+  .resume-row { width: 100%; max-width: 316px; display: flex; justify-content: space-between; gap: 16px; }
+  .resume-col { display: flex; flex-direction: column; gap: 4px; text-align: right; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .chip { font-family: "DM Mono", monospace; font-size: 13px; color: var(--grey-text); border: 1px solid var(--grey-border-label); border-radius: 40px; padding: 5px 12px; white-space: nowrap; }
+
+  /* ===== Contact + Footer ===== */
+  .contact { width: 100%; padding: 160px 0; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 40px; }
+  .contact h2 { font-family: "Inter Tight", sans-serif; font-weight: 500; font-size: clamp(40px, 5.5vw, 80px); line-height: 1.2em; max-width: 16ch; }
+  .contact .mono a { color: inherit; }
+  footer {
+    width: 100%; max-width: 1920px; margin: 0 auto; padding: 32px 24px;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+    border-top: 1px solid var(--grey-border);
+  }
+  footer a { color: inherit; }
+
+  /* ===== Project overlays ===== */
+  .modal {
+    position: fixed; inset: 0; z-index: 100; display: none;
+    background: rgba(20, 20, 21, 0.45); /* fallback for older Safari */
+    background: color-mix(in srgb, var(--main) 40%, transparent);
+    overflow-y: auto; padding: clamp(12px, 3vw, 48px);
+  }
+  .modal.open { display: block; animation: modal-fade 0.35s ease both; }
+  @keyframes modal-fade { from { opacity: 0; } to { opacity: 1; } }
+  /* Overlay content replays the page's movement every time it opens:
+     display:none -> block restarts these animations automatically */
+  .modal.open .mrev {
+    opacity: 0; transform: translateY(26px);
+    animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: var(--d, 0.1s);
+  }
+  .modal.open .mchar {
+    display: inline-block; opacity: 0; filter: blur(8px); transform: translateY(0.08em);
+    animation: hchar-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: var(--d, 0.15s);
+  }
+  .modal-inner {
+    max-width: 1320px; margin: 0 auto; background: var(--bg);
+    border: 1px solid var(--grey-border); border-radius: 20px;
+    padding: clamp(24px, 4vw, 64px); display: flex; flex-direction: column; gap: 56px;
+  }
+  /* ===== Project page layout (mirrors the template's /works/ pages) ===== */
+  .proj-head { display: flex; flex-direction: column; gap: 32px; }
+  .proj-title {
+    font-family: "Inter Tight", sans-serif; font-weight: 500;
+    font-size: clamp(44px, 7vw, 104px); line-height: 1em; letter-spacing: -0.3px;
+  }
+  .proj-sub { color: var(--grey-text); max-width: 44ch; }
+  .proj-meta {
+    display: flex; flex-wrap: wrap; gap: 10px 16px; justify-content: flex-end; align-items: center;
+    font-family: "DM Mono", monospace; font-size: 13px; color: var(--grey-text-2);
+    padding-top: 40px;
+  }
+  .proj-meta strong { color: var(--main); font-weight: 500; }
+  .proj-meta .sep { font-size: 11px; }
+  .hero-ph { aspect-ratio: 16 / 8; width: 100%; }
+  .split { display: flex; gap: 16px; align-items: flex-start; }
+  .split-img { width: 60%; aspect-ratio: auto; min-height: 620px; align-self: stretch; }
+  /* A column of images beside the About card — used where a project's shots are
+     all landscape and a single one would leave the column short */
+  .split-stack { width: 60%; display: flex; flex-direction: column; gap: 20px; }
+  .split-stack figure.shot-fig .img-ph.shot { max-width: 100%; }
+  .split-card {
+    flex: 1; background: var(--grey-back); border: 1px solid var(--grey-border);
+    border-radius: 16px; padding: clamp(32px, 4vw, 56px) clamp(20px, 2.5vw, 40px);
+    display: flex; flex-direction: column; align-items: center; gap: 36px; text-align: center;
+  }
+  .split-card .body-s { color: var(--grey-text); max-width: 34ch; }
+  .split-card .heading-4 { font-weight: 500; }
+  .split-card .chips { justify-content: center; }
+  .also { overflow: hidden; }
+  .also-track {
+    display: inline-flex; white-space: nowrap; gap: 36px; align-items: center;
+    font-family: "Inter Tight", sans-serif; font-weight: 500;
+    font-size: clamp(36px, 5vw, 84px); line-height: 1.1; will-change: transform;
+    animation: ticker-scroll 26s linear infinite;
+  }
+  .also-track .sep { color: var(--grey-text-2); font-size: 0.45em; }
+  .also-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .also-grid .work-card { height: clamp(380px, 34vw, 540px); }
+  .modal-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .modal-close { cursor: pointer; }
+  .modal-head { display: flex; flex-direction: column; gap: 20px; }
+  .modal-head p { color: var(--grey-text); max-width: 720px; }
+  .meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; border-top: 1px solid var(--grey-border); border-bottom: 1px solid var(--grey-border); padding: 20px 0; }
+  .meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .meta-item .k { font-family: "DM Mono", monospace; font-size: 13px; color: var(--grey-text-2); }
+  .img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .img-ph {
+    background: var(--grey-back); border: 1px solid var(--grey-border); border-radius: 16px;
+    aspect-ratio: 4 / 3; display: grid; place-items: center; padding: 16px; text-align: center;
+  }
+  .img-ph.wide { grid-column: 1 / -1; aspect-ratio: 21 / 9; }
+  /* Slots holding a real photograph.
+     --ar carries the image's own aspect ratio, so the frame takes the shape of
+     the picture and the picture fills it edge to edge — no padding, no letterboxing. */
+  .img-ph.shot {
+    padding: 0; overflow: hidden; display: block;
+    aspect-ratio: var(--ar, 4 / 3);
+  }
+  .img-ph.shot > img {
+    width: 100%; height: 100%; object-fit: cover;
+    display: block; border-radius: inherit;
+  }
+  .img-ph.shot > .placeholder-tag { display: none; }
+  /* Beside the About card the frame also takes the picture's shape, so it fills exactly.
+     It sticks as the taller card scrolls past, the same way the About portrait does. */
+  .split-img.shot {
+    min-height: 0; align-self: flex-start; aspect-ratio: var(--ar, 3 / 4);
+    position: sticky; top: 16px;
+  }
+  /* Grid images line up from the top rather than stretching to match each other */
+  .img-grid { align-items: start; }
+  /* If an image fails to load, fall back to the labelled placeholder */
+  .img-ph.missing { display: grid; place-items: center; padding: 16px; aspect-ratio: 4 / 3; }
+  .img-ph.missing > img { display: none; }
+  .img-ph.missing > .placeholder-tag { display: inline-block; }
+  figure.shot-fig { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  figure.shot-fig.wide { grid-column: 1 / -1; }
+  /* The hero is capped by height and centred: big enough to hold the page,
+     never so big that it outruns the source resolution */
+  .modal-inner > figure.shot-fig:first-of-type > .img-ph.shot {
+    max-height: clamp(300px, 78vh, 880px);
+    width: auto; margin: 0 auto;
+  }
+  /* Hero and full-width plates are never shown larger than their source can
+     carry — --natw is the image's own pixel width, so nothing is upscaled */
+  .modal-inner > figure.shot-fig:first-of-type > .img-ph.shot,
+  figure.shot-fig.wide > .img-ph.shot {
+    max-width: min(100%, calc(var(--natw, 4000px) / 1.3));
+    margin-left: auto; margin-right: auto;
+  }
+  /* The hero picture is centred, so its caption is centred with it rather than
+     starting back at the page's left edge */
+  .modal-inner > figure.shot-fig:first-of-type { align-items: center; }
+  .modal-inner > figure.shot-fig:first-of-type > figcaption { text-align: center; max-width: 68ch; }
+  /* A supporting shot that would otherwise dominate the page sits smaller and centred.
+     The whole figure narrows, not just the picture, so the caption stays under it. */
+  figure.shot-fig.wide.narrow { max-width: min(100%, 740px); margin-left: auto; margin-right: auto; }
+  /* The paired shots at the foot of a project share one square format, kept
+     deliberately modest so lower-resolution sources stay sharp */
+  .img-grid > figure.shot-fig:not(.wide) {
+    width: 100%; max-width: 440px; justify-self: center;
+  }
+  .img-grid > figure.shot-fig:not(.wide) > .img-ph.shot { aspect-ratio: 1 / 1; }
+  /* ...but a pair of landscape shots sits side by side at its own shape, filling
+     the two columns — squaring those off would cut the drawing apart */
+  .img-grid > figure.shot-fig.pair:not(.wide) {
+    max-width: none; justify-self: stretch;
+  }
+  /* Capped by height rather than width, so a portrait shot can't tower over the
+     landscape one beside it. --ar turns the height cap into a width cap, so
+     nothing is cropped — the picture just sits smaller and centred. */
+  .img-grid > figure.shot-fig.pair:not(.wide) > .img-ph.shot {
+    aspect-ratio: var(--ar, 4 / 3);
+    max-width: min(100%, calc(420px * var(--ar, 4 / 3)), calc(var(--natw, 4000px) / 1.3));
+    margin-left: auto; margin-right: auto;
+  }
+  .img-grid > figure.shot-fig.pair:not(.wide) > figcaption { text-align: center; }
+  figure.shot-fig figcaption { font-family: "DM Mono", monospace; font-size: 13px; color: var(--grey-text-2); line-height: 1.4; }
+  .work-card .img.shot { padding: 0; }
+  .work-card .img > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .work-card .img.missing > img { display: none; }
+  .modal-block { display: flex; flex-direction: column; gap: 20px; }
+  .modal-block .body-s { color: var(--grey-text); max-width: 720px; }
+  .hl { display: flex; flex-direction: column; gap: 10px; }
+  .hl .row { display: flex; gap: 16px; align-items: baseline; }
+  .hl .dash { font-family: "DM Mono", monospace; color: var(--primary); }
+  .modal .chips { justify-content: flex-start; }
+
+  /* ===== Movement: load, scroll and looping animations ===== */
+  /* Hero heading — letters type in with a blur that sharpens */
+  .hchar {
+    display: inline-block; opacity: 0; filter: blur(10px); transform: translateY(0.08em);
+    animation: hchar-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  @keyframes hchar-in { to { opacity: 1; filter: blur(0); transform: none; } }
+  /* Staggered fade/slide-up on load */
+  .load-fade {
+    opacity: 0; transform: translateY(24px);
+    animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  @keyframes fade-up { to { opacity: 1; transform: none; } }
+  /* Fade-up as elements enter the viewport */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+  .reveal.in { opacity: 1; transform: none; }
+  /* Scroll-to-explore arrow — circular button, arrow bobs through on a loop */
+  .scroll-pill .arrow {
+    width: 44px; height: 44px; border-radius: 50%;
+    border: 1px solid var(--grey-border); overflow: hidden;
+  }
+  .arrow-glyph { display: inline-block; animation: arrow-bob 2.8s ease-in-out infinite; }
+  @keyframes arrow-bob {
+    0%, 55% { transform: translateY(0); opacity: 1; }
+    70% { transform: translateY(16px); opacity: 0; }
+    70.1% { transform: translateY(-16px); opacity: 0; }
+    85%, 100% { transform: translateY(0); opacity: 1; }
+  }
+  /* Contact button — a light that travels around the border (sea-green accent) */
+  :root { --accent-glow: rgb(32, 178, 137); }
+  .glow-btn {
+    position: relative; z-index: 0; overflow: hidden; border-radius: 40px;
+    box-shadow: 0 0 26px -8px rgba(32, 178, 137, 0.55);
+  }
+  .glow-btn::before {
+    content: ""; position: absolute; z-index: -2; left: 50%; top: 50%;
+    width: 320%; aspect-ratio: 1 / 1; margin: 0; pointer-events: none;
+    background: conic-gradient(from 0deg,
+      transparent 0deg, transparent 250deg,
+      rgba(32, 178, 137, 0.45) 300deg,
+      rgb(32, 178, 137) 330deg,
+      transparent 360deg);
+    transform: translate(-50%, -50%) rotate(0deg);
+    animation: orbit 3.2s linear infinite;
+  }
+  .glow-btn::after {
+    content: ""; position: absolute; z-index: -1; inset: 1.5px;
+    border-radius: inherit; background: var(--btn-color); pointer-events: none;
+  }
+  @keyframes orbit { to { transform: translate(-50%, -50%) rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) {
+    :root { --bg-progress: 0.4; }
+    .hchar, .load-fade { animation: none; opacity: 1; filter: none; transform: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .arrow-glyph, .glow-btn::before, .ticker-track, .also-track { animation: none; }
+    .work-card .img, .work-card .desc { transition: none; }
+    .modal.open, .modal.open .mrev, .modal.open .mchar { animation: none; opacity: 1; filter: none; transform: none; }
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 1000px) {
+    /* Less photograph behind the text: the crop is tighter on a narrow screen,
+       and a lighter blur is kinder to mobile compositors */
+    :root { --veil-base: 0.87; --blur-max: 18px; }
+    .works { grid-template-columns: 1fr; }
+    .about-section { flex-direction: column; }
+    .img-clients { position: static; width: 100%; height: auto; }
+    .img-clients .portrait { min-height: 420px; }
+    .img-clients .portrait.shot { min-height: 0; width: min(100%, calc(72vh * 704 / 1070), 704px); }
+    .hero { padding-top: 160px; }
+    .hero .social { flex-direction: row; }
+    .img-grid { grid-template-columns: 1fr; }
+    .work-card .bar { flex-direction: column; align-items: flex-start; }
+    .split { flex-direction: column; align-items: stretch; }
+    .split-img { width: 100%; min-height: 380px; }
+    /* Stacked above the About card, a portrait shot at full column width would be
+       taller than the screen and bury the text below it. Cap it by height instead
+       — --ar turns that into a width, so nothing is cropped. */
+    .split-img.shot {
+      width: auto; min-height: 0;
+      max-width: min(100%, calc(58vh * var(--ar, 3 / 4)), calc(var(--natw, 4000px) / 1.3));
+      margin-left: auto; margin-right: auto;
+      /* Stacked, a sticky image would hang at the top of the screen and cover
+         the About text scrolling underneath it. It scrolls with the page here. */
+      position: static; top: auto;
+    }
+    .split-stack { width: 100%; }
+    .also-grid { grid-template-columns: 1fr; }
+    .proj-meta { justify-content: flex-start; padding-top: 16px; }
+  }
+  @media (max-width: 640px) {
+    :root { --veil-base: 0.91; --blur-max: 14px; }
+    .hero .social { top: 44px; left: 0; right: 0; flex-wrap: wrap; justify-content: flex-start; }
+    .hero { padding-top: 132px; }
+    .modal-inner { border-radius: 16px; }
+  }
+  /* A phone held sideways: reclaim the vertical space the hero and heroes eat */
+  @media (max-height: 560px) and (orientation: landscape) {
+    .hero { padding-top: 96px; padding-bottom: 16px; }
+    .contact { padding: 96px 0; }
+  }
+  /* Touch devices have no hover — show the card descriptions and meta tickers outright */
+  @media (hover: none) {
+    .work-card .desc { max-height: 4.8em; opacity: 1; transform: none; }
+    .ticker-pill { opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-photo" aria-hidden="true"></div>
+<div class="bg-veil" aria-hidden="true"></div>
+
+<div class="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="logo load-fade" style="animation-delay: 0.9s;">Archie Ballinger</div>
+    <div class="social load-fade" style="animation-delay: 1.05s;">
+      <a class="pill-btn" href="https://www.linkedin.com/in/archie-ballinger-32a596300/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="pill-btn glow-btn" href="resume.html">Resume</a>
+      <a class="pill-btn" href="mailto:Archie.ball0019@gmail.com">Email</a>
+    </div>
+    <div class="hero-text">
+      <h1 class="heading-xxl" id="heroTitle">Industrial Designer</h1>
+      <div class="hero-row load-fade" style="animation-delay: 1.2s;">
+        <p class="body-l">I design objects end to end, working on safety-critical and sustainability problems, from research and electronics to prototypes that actually work. Based in Melbourne.</p>
+        <div class="scroll-pill">
+          <span class="mono">Scroll to explore</span>
+          <span class="arrow"><span class="arrow-glyph">&#8595;</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORKS ============ -->
+  <section class="works" id="work">
+
+    <button class="work-card reveal" data-modal="p1" data-meta="2026 &middot; Wearable &middot; Honours">
+      <div class="img shot"><img src="images/mouthguard-card.jpg" alt="The concussion detection mouthguard on an AFL ground, LED strip lit" onerror="this.parentNode.classList.add('missing')"></div>
+      <div class="bar">
+        <div>
+          <div class="heading-3">Concussion Detection Mouthguard</div>
+          <div class="body-s desc">Real-time concussion detection in a mouthguard players already wear.</div>
+        </div>
+      </div>
+    </button>
+
+    <button class="work-card reveal" data-modal="p2" data-meta="UV-C &middot; Medical Design">
+      <div class="img shot"><img src="images/uvc-card.jpg" alt="The UVC tool cleaner in use on a clinical bench" onerror="this.parentNode.classList.add('missing')"></div>
+      <div class="bar">
+        <div>
+          <div class="heading-3">UVC Tool Cleaner</div>
+          <div class="body-s desc">A chemical-free UV-C system that disinfects medical tools for safe reuse.</div>
+        </div>
+      </div>
+    </button>
+
+    <button class="work-card reveal" data-modal="p3" data-meta="2025 &middot; Art Toy">
+      <div class="img shot"><img src="images/ducky-finished-model.jpg" alt="Ducky, the finished hand-painted art toy, photographed outdoors" onerror="this.parentNode.classList.add('missing')"></div>
+      <div class="bar">
+        <div>
+          <div class="heading-3">Ducky, Backpacking Art Toy</div>
+          <div class="body-s desc">A 30 cm collectible backpacker bird, sketched, sculpted and hand-finished.</div>
+        </div>
+      </div>
+    </button>
+
+    <button class="work-card reveal" data-modal="p4" data-meta="2024 &middot; Medical Design">
+      <div class="img shot"><img src="images/splitaid-card.jpg" alt="A responder placing the Split-AID on a collapsed man's chest" onerror="this.parentNode.classList.add('missing')"></div>
+      <div class="bar">
+        <div>
+          <div class="heading-3">Split-AID Defibrillator</div>
+          <div class="body-s desc">A compact two-part AED that splits apart for faster pad placement.</div>
+        </div>
+      </div>
+    </button>
+
+    <button class="work-card reveal" data-modal="p5" data-meta="Blender &middot; 3D Visualisation">
+      <div class="img shot"><img src="images/blender-helmet-hero.jpg" alt="Final Blender render of a yellow ski helmet with textured shell and Mips badge" onerror="this.parentNode.classList.add('missing')"></div>
+      <div class="bar">
+        <div>
+          <div class="heading-3">Blender Render Studies</div>
+          <div class="body-s desc">The full CAD-to-render pipeline across sneaker and ski-helmet studies.</div>
+        </div>
+      </div>
+    </button>
+
+    <button class="work-card reveal" data-modal="p6" data-meta="Systems &middot; Sustainable Design">
+      <div class="img shot"><img src="images/rooftop-card.jpg" alt="Rendered views of the Roof Top Green rooftop garden" onerror="this.parentNode.classList.add('missing')"></div>
+      <div class="bar">
+        <div>
+          <div class="heading-3">Roof Top Green</div>
+          <div class="body-s desc">A systems-mapping project turning a rooftop into a participatory ecological garden.</div>
+        </div>
+      </div>
+    </button>
+
+    <button class="work-card reveal" data-modal="p8" data-meta="2024 &middot; Sustainable Business">
+      <div class="img shot"><img src="images/neobean-hero.jpg" alt="Render of the NeoBean Bag in navy neoprene" onerror="this.parentNode.classList.add('missing')"></div>
+      <div class="bar">
+        <div>
+          <div class="heading-3">Neo Shoreline</div>
+          <div class="body-s desc">Premium beach products made from up-cycled neoprene wetsuit offcuts.</div>
+        </div>
+      </div>
+    </button>
+
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about-section" id="about">
+    <div class="img-clients">
+      <div class="portrait shot"><img src="images/portrait.jpg" alt="Archie Ballinger, industrial designer" onerror="this.parentNode.classList.add('missing')"><span class="placeholder-tag">[ portrait photo ]</span></div>
+      <div class="ticker mono">
+        <span>Protective Wearables</span><span>Medical &amp; Emergency Devices</span><span>Sustainability &amp; Systems</span><span>Character &amp; Collectibles</span>
+      </div>
+    </div>
+
+    <div class="about-content">
+
+      <div class="card reveal">
+        <div class="inner">
+          <span class="label">About</span>
+          <div style="display:flex; flex-direction:column; gap:20px; width:100%;">
+            <div class="heading-4">Hi, I am Archie Ballinger, an Industrial Designer</div>
+            <p class="body-s" style="color: var(--grey-text);">I design objects end to end: research, CAD, electronics, interface, and a prototype that actually works. My practice sits across protective &amp; detective wearables, medical and emergency devices, sustainability and systems design, and character &amp; collectible objects.</p>
+          </div>
+          <div class="vline"></div>
+          <div class="facts">
+            <span class="mono">(Industrial Design Honours at RMIT)</span>
+            <span class="mono">(Freelancing via Ballinger Technology)</span>
+            <span class="mono">(7 years a surf lifesaver &amp; squad coach)</span>
+            <span class="mono">(Based in Melbourne, VIC)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="inner">
+          <span class="label">Experience</span>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:8px; width:100%;">
+            <div class="resume-row">
+              <span class="mono">2026 &ndash; Now</span>
+              <div class="resume-col"><span class="body-s">Freelance Industrial Designer</span><span class="mono">Victoria Police &middot; Ballinger Technology</span></div>
+            </div>
+            <div class="vline"></div>
+            <div class="resume-row">
+              <span class="mono">2026 &ndash; Now</span>
+              <div class="resume-col"><span class="body-s">Freelance Industrial Designer</span><span class="mono">WA Police &middot; Ballinger Technology</span></div>
+            </div>
+            <div class="vline"></div>
+            <div class="resume-row">
+              <span class="mono">2022 &ndash; 2024</span>
+              <div class="resume-col"><span class="body-s">Studio Technician</span><span class="mono">RMIT</span></div>
+            </div>
+            <div class="vline"></div>
+            <div class="resume-row">
+              <span class="mono">2015 &ndash; Now</span>
+              <div class="resume-col"><span class="body-s">Squad Coach &amp; Surf Lifesaver</span><span class="mono">Working under pressure</span></div>
+            </div>
+            <div class="vline"></div>
+            <div class="resume-row">
+              <span class="mono">2022 &ndash; 2026</span>
+              <div class="resume-col"><span class="body-s">B. Industrial Design (Honours)</span><span class="mono">RMIT &middot; Advanced Manufacturing</span></div>
+            </div>
+          </div>
+          <a class="pill-btn" href="resume.html">Download CV</a>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="inner">
+          <span class="label">Capabilities</span>
+          <div class="chips">
+            <span class="chip">User research</span>
+            <span class="chip">Sketching</span>
+            <span class="chip">CAD</span>
+            <span class="chip">Rendering</span>
+            <span class="chip">3D printing</span>
+            <span class="chip">Model-making &amp; finishing</span>
+            <span class="chip">CMF</span>
+            <span class="chip">Prototyping</span>
+            <span class="chip">UX &amp; UI design</span>
+            <span class="chip">PCB design &amp; build</span>
+            <span class="chip">Systems &amp; service design</span>
+          </div>
+        </div>
+        <a class="pill-btn" href="#work">See the work</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <span class="label reveal">Contact</span>
+    <h2 class="reveal">Looking for a designer who builds? Let&rsquo;s talk.</h2>
+    <a class="pill-btn glow-btn reveal" href="resume.html">Resume</a>
+    <div class="mono" style="display:flex; gap:24px; flex-wrap:wrap; justify-content:center;">
+      <a href="mailto:Archie.ball0019@gmail.com">Archie.ball0019@gmail.com</a>
+      <a href="tel:0478717063">0478 717 063</a>
+      <a href="https://www.linkedin.com/in/archie-ballinger-32a596300/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <span class="mono">&copy; 2026 Archie Ballinger &middot; Melbourne, VIC</span>
+  <div style="display:flex; gap:24px;">
+    <a class="mono" href="https://www.linkedin.com/in/archie-ballinger-32a596300/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="mono" href="resume.html">Resume</a>
+    <a class="mono" href="mailto:Archie.ball0019@gmail.com">Email</a>
+  </div>
+</footer>
+
+<!-- ============ PROJECT OVERLAYS ============ -->
+
+<!-- P1: Concussion Detection Mouthguard -->
+<div class="modal" id="p1">
+  <div class="modal-inner">
+    <div class="modal-top">
+      <span class="pill-btn modal-close">&#8592; Back to folio</span>
+      <span class="mono">Project 01 · Protective Wearable</span>
+    </div>
+    <div class="proj-head">
+      <h2 class="proj-title">Concussion Detection Mouthguard</h2>
+      <p class="body-l proj-sub">An IMU reads abnormal force; a red and blue LED flashes on the field while Bluetooth alerts the bench in real time, so subtle, dangerous hits are no longer missed.</p>
+      <div class="proj-meta"><span>Year: <strong>2026</strong></span><span class="sep">✦</span><span>Role: <strong>Sole designer</strong></span><span class="sep">✦</span><span>Tools: <strong>CAD, IMU/BLE</strong></span><span class="sep">✦</span><span>Type: <strong>Honours project</strong></span></div>
+    </div>
+    <figure class="shot-fig">
+      <div class="img-ph shot" style="--natw:1726px; --ar:1726/1079"><img src="images/mouthguard-hero.jpg" alt="The concussion detection mouthguard on the turf of an AFL stadium, its internal LED strip lit red" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>The guard in context: the LED strip visible through the shell, lit on impact</figcaption>
+    </figure>
+    <div class="split">
+      <div class="img-ph split-img shot" style="--natw:1125px; --ar:1125/1198"><img src="images/mouthguard-prototype-lit.jpg" alt="The working mouthguard prototype, LED strip lit red and blue through the clear shell" onerror="this.parentNode.classList.add('missing')"></div>
+      <div class="split-card">
+        <span class="label">About this project</span>
+        <p class="body-s">A Design Honours project tackling concussions missed on the AFL field, where fewer than 5% of players wear helmets and sideline checks often miss subtle or delayed symptoms. I researched existing sensor mouthguards and biosensors, spoke with AFL medical staff, and tested materials, sensors and layouts to land on a mouthguard that combines impact sensors, LEDs and Bluetooth for instant visual alerts to players and off-ground staff, backed by a real-time dashboard for medical decision-making.</p>
+        <div class="vline"></div>
+        <div class="heading-4">Highlights</div>
+        <p class="body-s">Grounded in AFL concussion data & medical-staff interviews</p>
+        <p class="body-s">Impact sensor + LED + Bluetooth alert system</p>
+        <p class="body-s">Real-time dashboard for off-ground medical response</p>
+        <p class="body-s">Fits existing AFL gameplay without changing how players move</p>
+        <div class="vline"></div>
+        <div class="heading-4">Tools &amp; skills</div>
+        <div class="chips"><span class="chip">User research</span><span class="chip">Benchmarking</span><span class="chip">CAD</span><span class="chip">IMU / BLE electronics</span><span class="chip">CMF</span><span class="chip">Prototyping</span><span class="chip">UX design</span><span class="chip">UI design</span><span class="chip">Real-time interfacing</span><span class="chip">PCB manufacturing</span><span class="chip">PCB loading</span><span class="chip">Soldering/wiring</span><span class="chip">Firmware / Arduino</span><span class="chip">Circuit testing</span><span class="chip">Data visualisation</span></div>
+      </div>
+    </div>
+    <div class="img-grid">
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:895px; --ar:895/1117"><img src="images/mouthguard-gameplay.jpg" alt="Two AFL players colliding in a contest" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>The game: contact is constant, and most of it is never assessed</figcaption>
+    </figure>
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:617px; --ar:617/768"><img src="images/mouthguard-assisted-off.jpg" alt="An AFL player being helped from the ground, the mouthguard lit red and blue" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>After an alert: the guard flags the hit before anyone on the bench sees it</figcaption>
+    </figure>
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:2400px; --ar:2400/1247"><img src="images/mouthguard-dashboard-map.png" alt="Dashboard impact map: player positions on the ground with per-player g-force and rotation readings" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Companion dashboard: live impact map for bench medical staff</figcaption>
+    </figure>
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:2400px; --ar:2400/1246"><img src="images/mouthguard-dashboard-alerts.png" alt="Dashboard with incident alerts stacked for three flagged players" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Dashboard: impact-force and rotation history, player by player</figcaption>
+    </figure>
+      <figure class="shot-fig wide">
+      <div class="img-ph shot" style="--natw:2400px; --ar:2400/1223"><img src="images/mouthguard-dashboard-highrisk.png" alt="Dashboard high-risk alert modal for player 31: 72g left side rotation, recommending a SCAT5 assessment" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>High-risk alert: impact history and the recommended action, with a one-tap send-off</figcaption>
+    </figure>
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:1143px; --ar:1143/1034"><img src="images/mouthguard-sensor-board.jpg" alt="The assembled LED strip and Seeed Xiao BLE module wired and running" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Assembled board: LED strip and BLE module, tested live</figcaption>
+    </figure>
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:914px; --ar:914/655"><img src="images/mouthguard-pcb-module.png" alt="PCB layout of the BLE module carrier board showing pads, vias and net labels" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Custom PCB: module carrier, designed and machine-loaded</figcaption>
+    </figure>
+      <figure class="shot-fig wide">
+      <div class="img-ph shot" style="--natw:1272px; --ar:1272/470"><img src="images/mouthguard-pcb-ledstrip.png" alt="PCB layout of the LED strip: seven LEDs in series with driver transistor and passives" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>LED strip layout: seven addressable LEDs, driver and passives on a 40 mm flex</figcaption>
+    </figure>
+    </div>
+    <div class="also"><div class="also-track"><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span></div></div>
+    <div class="also-grid">
+      <button class="work-card" data-modal="p2" data-meta="UV-C &middot; Medical Design">
+        <div class="img shot"><img src="images/uvc-card.jpg" alt="The UVC tool cleaner in use on a clinical bench" onerror="this.parentNode.classList.add('missing')"></div>
+        <div class="bar">
+          <div>
+            <div class="heading-3">UVC Tool Cleaner</div>
+            <div class="body-s desc">A chemical-free UV-C system that disinfects medical tools for safe reuse.</div>
+          </div>
+        </div>
+      </button>
+      <button class="work-card" data-modal="p3" data-meta="2025 &middot; Art Toy">
+        <div class="img shot"><img src="images/ducky-finished-model.jpg" alt="Ducky, the finished hand-painted art toy, photographed outdoors" onerror="this.parentNode.classList.add('missing')"></div>
+        <div class="bar">
+          <div>
+            <div class="heading-3">Ducky</div>
+            <div class="body-s desc">A 30 cm collectible backpacker bird, sketched, sculpted and hand-finished.</div>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- P2: UVC Tool Cleaner -->
+<div class="modal" id="p2">
+  <div class="modal-inner">
+    <div class="modal-top">
+      <span class="pill-btn modal-close">&#8592; Back to folio</span>
+      <span class="mono">Project 02 · Medical Design</span>
+    </div>
+    <div class="proj-head">
+      <h2 class="proj-title">UVC Tool Cleaner</h2>
+      <p class="body-l proj-sub">Push, twist, timer: no buttons, one screen. Tools that get thrown away today are disinfected in seconds and used again: less waste, lower cost, safe reuse.</p>
+      <div class="proj-meta"><span>Source: <strong>UV-C LED</strong></span><span class="sep">✦</span><span>Wavelength: <strong>265–280 nm</strong></span><span class="sep">✦</span><span>Cycle: <strong>60–180 s</strong></span><span class="sep">✦</span><span>Disinfection: <strong>≥ 99.9%</strong></span></div>
+    </div>
+    <figure class="shot-fig">
+      <div class="img-ph shot" style="--natw:2032px; --ar:2032/2032"><img src="images/uvc-exploded-view.jpg" alt="Exploded view of the UVC tool cleaner: lid, UV-C chamber, body and recycled-plastic shell panels" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Exploded view: lid assembly, UV-C chamber, body and recycled-plastic shell panels</figcaption>
+    </figure>
+    <div class="split">
+      <div class="img-ph split-img shot" style="--natw:1864px; --ar:1864/2630"><img src="images/uvc-in-use-bench.jpg" alt="The UVC tool cleaner in use on a clinical bench, lid raised with the UV-C cycle running" onerror="this.parentNode.classList.add('missing')"></div>
+      <div class="split-card">
+        <span class="label">About this project</span>
+        <p class="body-s">A product, service and systems brief reimagining how hospitals handle single-use tools. The project paired sustainability research with a simple push-twist-timer interaction, and was reviewed by an NHS doctor who confirmed its clinical value.</p>
+        <div class="vline"></div>
+        <div class="heading-4">Highlights</div>
+        <p class="body-s">Chemical-free UV-C disinfection ≥ 99.9%</p>
+        <p class="body-s">Push · twist · timer, no buttons</p>
+        <p class="body-s">Endorsed by an NHS doctor</p>
+        <p class="body-s">Open-source, serviceable design</p>
+        <div class="vline"></div>
+        <div class="heading-4">Tools &amp; skills</div>
+        <div class="chips"><span class="chip">User research</span><span class="chip">CAD</span><span class="chip">Open-source design</span><span class="chip">Sustainability</span><span class="chip">Ergonomics</span><span class="chip">Systems thinking</span><span class="chip">UVC engineering</span><span class="chip">Fusion 360</span><span class="chip">KeyShot</span><span class="chip">Service design</span><span class="chip">Design for manufacture</span></div>
+      </div>
+    </div>
+    <div class="img-grid">
+      <figure class="shot-fig wide narrow">
+      <div class="img-ph shot" style="--natw:1800px; --ar:1800/1200"><img src="images/uvc-surgical-tools.jpg" alt="Stainless surgical instruments laid out on a blue drape with gloved hands" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>The instruments the system returns to service</figcaption>
+    </figure>
+      <figure class="shot-fig">
+      <div class="img-ph shot" style="--natw:657px; --ar:657/657"><img src="images/uvc-push-twist.jpg" alt="The closed unit, with an arrow showing the lid twisting to start a cycle" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Push and twist: the lid is the only control</figcaption>
+    </figure>
+      <figure class="shot-fig">
+      <div class="img-ph shot" style="--natw:1400px; --ar:1400/1973"><img src="images/uvc-clinical-waste.jpg" alt="A red clinical waste bag filled with used syringes, gauze and gloves" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>The problem: single-use instruments bound for clinical waste</figcaption>
+    </figure>
+    </div>
+    <div class="also"><div class="also-track"><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span></div></div>
+    <div class="also-grid">
+      <button class="work-card" data-modal="p3" data-meta="2025 &middot; Art Toy">
+        <div class="img shot"><img src="images/ducky-finished-model.jpg" alt="Ducky, the finished hand-painted art toy, photographed outdoors" onerror="this.parentNode.classList.add('missing')"></div>
+        <div class="bar">
+          <div>
+            <div class="heading-3">Ducky</div>
+            <div class="body-s desc">A 30 cm collectible backpacker bird, sketched, sculpted and hand-finished.</div>
+          </div>
+        </div>
+      </button>
+      <button class="work-card" data-modal="p4" data-meta="2024 &middot; Medical Design">
+        <div class="img shot"><img src="images/splitaid-card.jpg" alt="A responder placing the Split-AID on a collapsed man's chest" onerror="this.parentNode.classList.add('missing')"></div>
+        <div class="bar">
+          <div>
+            <div class="heading-3">Split-AID Defibrillator</div>
+            <div class="body-s desc">A compact two-part AED that splits apart for faster pad placement.</div>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- P3: Ducky -->
+<div class="modal" id="p3">
+  <div class="modal-inner">
+    <div class="modal-top">
+      <span class="pill-btn modal-close">&#8592; Back to folio</span>
+      <span class="mono">Project 03 · Art Toy</span>
+    </div>
+    <div class="proj-head">
+      <h2 class="proj-title">Ducky</h2>
+      <p class="body-l proj-sub">A 30 cm collectible backpacker bird, sketched then sculpted in ZBrush, 3D-printed and hand-finished, built to remind students to dream beyond the everyday.</p>
+      <div class="proj-meta"><span>Role: <strong>Concept → finish</strong></span><span class="sep">✦</span><span>Tools: <strong>Sketch, ZBrush, 3D print</strong></span><span class="sep">✦</span><span>Size: <strong>30 cm · multi-part</strong></span><span class="sep">✦</span><span>Year: <strong>2025</strong></span></div>
+    </div>
+    <figure class="shot-fig">
+      <div class="img-ph shot" style="--natw:1932px; --ar:1932/1433"><img src="images/ducky-finished-model.jpg" alt="Ducky, the finished hand-painted art toy, photographed outdoors" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>The finished 30 cm model, hand-painted and photographed on location</figcaption>
+    </figure>
+    <div class="split">
+      <div class="img-ph split-img shot" style="--natw:850px; --ar:850/506"><img src="images/ducky-concept-painting.jpg" alt="Painted concept illustration of Ducky walking with a pack" onerror="this.parentNode.classList.add('missing')"></div>
+      <div class="split-card">
+        <span class="label">About this project</span>
+        <p class="body-s">A character-design and making project: a 30 cm collectible backpacker bird. The work ran from audience insight and sketching through Blender and ZBrush sculpting, multi-part 3D printing, and a full hand-finishing process, adapting when the airbrush failed mid-way.</p>
+        <div class="vline"></div>
+        <div class="heading-4">Highlights</div>
+        <p class="body-s">Sketch → Blender → ZBrush → 3D print → finish</p>
+        <p class="body-s">30 cm multi-part buildable model</p>
+        <p class="body-s">Hand-painted final prototype</p>
+        <p class="body-s">Delivered with a display box & tech pack</p>
+        <div class="vline"></div>
+        <div class="heading-4">Tools &amp; skills</div>
+        <div class="chips"><span class="chip">Sketching</span><span class="chip">Blender/ZBrush</span><span class="chip">3D printing</span><span class="chip">Model-making</span><span class="chip">Hand-finishing</span><span class="chip">CMF</span><span class="chip">Character design</span><span class="chip">Sculpting</span><span class="chip">Sewing & soft goods</span><span class="chip">Painting & finishing</span></div>
+      </div>
+    </div>
+    <div class="img-grid">
+      <figure class="shot-fig wide">
+      <div class="img-ph shot" style="--natw:1782px; --ar:1782/1027"><img src="images/ducky-character-sketches.png" alt="Character development sheet: duck poses, outfits, packs and face studies" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Character development sheet: poses, outfits, packs and face studies</figcaption>
+    </figure>
+      <figure class="shot-fig">
+      <div class="img-ph shot" style="--natw:657px; --ar:657/689"><img src="images/ducky-zbrush-sculpt.jpg" alt="Ducky sculpted in ZBrush, grey clay render" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>ZBrush and Blender sculpt</figcaption>
+    </figure>
+      <figure class="shot-fig">
+      <div class="img-ph shot" style="--natw:517px; --ar:517/590"><img src="images/ducky-printed-parts.jpg" alt="3D-printed parts packed in foam inside a plywood crate" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>3D-printed parts, boxed for finishing</figcaption>
+    </figure>
+    </div>
+    <div class="also"><div class="also-track"><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span></div></div>
+    <div class="also-grid">
+      <button class="work-card" data-modal="p4" data-meta="2024 &middot; Medical Design">
+        <div class="img shot"><img src="images/splitaid-card.jpg" alt="A responder placing the Split-AID on a collapsed man's chest" onerror="this.parentNode.classList.add('missing')"></div>
+        <div class="bar">
+          <div>
+            <div class="heading-3">Split-AID Defibrillator</div>
+            <div class="body-s desc">A compact two-part AED that splits apart for faster pad placement.</div>
+          </div>
+        </div>
+      </button>
+      <button class="work-card" data-modal="p5" data-meta="Blender &middot; 3D Visualisation">
+        <div class="img shot"><img src="images/blender-helmet-hero.jpg" alt="Final Blender render of a yellow ski helmet with textured shell and Mips badge" onerror="this.parentNode.classList.add('missing')"></div>
+        <div class="bar">
+          <div>
+            <div class="heading-3">Blender Render Studies</div>
+            <div class="body-s desc">The full CAD-to-render pipeline across sneaker and ski-helmet studies.</div>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- P4: Split-AID Defibrillator -->
+<div class="modal" id="p4">
+  <div class="modal-inner">
+    <div class="modal-top">
+      <span class="pill-btn modal-close">&#8592; Back to folio</span>
+      <span class="mono">04 · Medical Design · Study</span>
+    </div>
+    <div class="proj-head">
+      <h2 class="proj-title">Split-AID Defibrillator</h2>
+      <p class="body-l proj-sub">A concept for a compact, two-part automated defibrillator that splits apart for faster pad placement and easier one-person use under pressure.</p>
+      <div class="proj-meta"><span>Discipline: <strong>Medical design</strong></span><span class="sep">✦</span><span>Type: <strong>Concept study</strong></span><span class="sep">✦</span><span>Tools: <strong>CAD, Rendering</strong></span><span class="sep">✦</span><span>Year: <strong>2024</strong></span></div>
+    </div>
+    <figure class="shot-fig">
+      <div class="img-ph shot" style="--natw:1580px; --ar:1580/623"><img src="images/splitaid-in-use.jpg" alt="A responder placing the Split-AID on the chest of a collapsed man on a wooden floor" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>In use: one responder, no training, under pressure</figcaption>
+    </figure>
+    <div class="split">
+      <div class="img-ph split-img shot" style="--natw:1535px; --ar:1535/623"><img src="images/splitaid-studio-render.jpg" alt="Studio render of the Split-AID defibrillator, the two halves docked as one red unit" onerror="this.parentNode.classList.add('missing')"></div>
+      <div class="split-card">
+        <span class="label">About this project</span>
+        <p class="body-s">A two-part defibrillator concept that splits apart so pads can be placed faster under pressure, designed for a single first responder to use with no training. The unit splits in two so both pads go straight onto the chest, turning the sequence into three physical actions: split, peel, stick.</p>
+        <div class="vline"></div>
+        <div class="heading-4">Highlights</div>
+        <p class="body-s">Splits in two for faster pad placement</p>
+        <p class="body-s">One-person operation under pressure</p>
+        <p class="body-s">Split, peel, stick: a three-step sequence readable with no training</p>
+        <div class="vline"></div>
+        <div class="heading-4">Tools &amp; skills</div>
+        <div class="chips"><span class="chip">CAD</span><span class="chip">Rendering</span><span class="chip">Medical design</span><span class="chip">User research</span><span class="chip">Emergency response</span><span class="chip">Ergonomics</span><span class="chip">Human factors</span><span class="chip">Prototyping</span><span class="chip">Design for manufacture</span></div>
+      </div>
+    </div>
+    <div class="img-grid">
+      <figure class="shot-fig wide">
+      <div class="img-ph shot" style="--natw:1920px; --ar:1920/1026"><img src="images/splitaid-instructions.png" alt="Instruction system: split, peel, stick panels alongside the DRSABC basic life support sequence" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Instruction system: split, peel, stick, beside the Basic Life Support sequence</figcaption>
+    </figure>
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:1243px; --ar:1243/474"><img src="images/splitaid-technical-drawing.png" alt="Dimensioned drawing of the enclosure with a section view through the housing" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Enclosure profile: split-line, section view and key dimensions (mm)</figcaption>
+    </figure>
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:1134px; --ar:1134/484"><img src="images/splitaid-vitals-display.png" alt="Vitals display showing ECG, respiration, SpO2, CO2 and blood pressure beside a map for responders" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Vitals display: feedback the moment pads make contact, with location for emergency services</figcaption>
+    </figure>
+    </div>
+    <div class="also"><div class="also-track"><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span></div></div>
+    <div class="also-grid">
+      <button class="work-card" data-modal="p5" data-meta="Blender &middot; 3D Visualisation">
+        <div class="img shot"><img src="images/blender-helmet-hero.jpg" alt="Final Blender render of a yellow ski helmet with textured shell and Mips badge" onerror="this.parentNode.classList.add('missing')"></div>
+        <div class="bar">
+          <div>
+            <div class="heading-3">Blender Render Studies</div>
+            <div class="body-s desc">The full CAD-to-render pipeline across sneaker and ski-helmet studies.</div>
+          </div>
+        </div>
+      </button>
+      <button class="work-card" data-modal="p6" data-meta="Systems &middot; Sustainable Design">
+        <div class="img shot"><img src="images/rooftop-card.jpg" alt="Rendered views of the Roof Top Green rooftop garden" onerror="this.parentNode.classList.add('missing')"></div>
+        <div class="bar">
+          <div>
+            <div class="heading-3">Roof Top Green</div>
+            <div class="body-s desc">A systems-mapping project turning a rooftop into a participatory ecological garden.</div>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- P5: Blender Render Studies -->
+<div class="modal" id="p5">
+  <div class="modal-inner">
+    <div class="modal-top">
+      <span class="pill-btn modal-close">&#8592; Back to folio</span>
+      <span class="mono">05 · 3D Visualisation</span>
+    </div>
+    <div class="proj-head">
+      <h2 class="proj-title">Blender Render Studies</h2>
+      <p class="body-l proj-sub">The full CAD-to-render pipeline, from sculpt and UVs through shading and studio lighting to final render, applied across sneaker and ski-helmet studies.</p>
+      <div class="proj-meta"><span>Discipline: <strong>3D & rendering</strong></span><span class="sep">✦</span><span>Tools: <strong>Blender</strong></span><span class="sep">✦</span><span>Focus: <strong>Lighting · CMF</strong></span><span class="sep">✦</span><span>Type: <strong>Ongoing series</strong></span></div>
+    </div>
+    <figure class="shot-fig">
+      <div class="img-ph shot" style="--natw:1800px; --ar:1800/1429"><img src="images/blender-helmet-hero.jpg" alt="Final Blender render of a yellow ski helmet, three-quarter view, showing the textured shell, vents and Mips badge" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Final render: textured shell, moulded vents and webbing retention system</figcaption>
+    </figure>
+    <div class="split">
+      <div class="img-ph split-img shot" style="--natw:1500px; --ar:1500/1982"><img src="images/blender-helmet-on-head.jpg" alt="Final render of the yellow ski helmet worn on a head, profile view" onerror="this.parentNode.classList.add('missing')"></div>
+      <div class="split-card">
+        <span class="label">About this project</span>
+        <p class="body-s">A render series built at RMIT covering the full Blender pipeline: sculpting, UVs, shading, studio lighting and final render, applied across a sneaker and a ski helmet. A collection of product visualisation, lighting and material studies exploring form, fabric shading and studio lighting setups.</p>
+        <div class="vline"></div>
+        <div class="heading-4">Highlights</div>
+        <p class="body-s">Full sculpt-to-render pipeline in Blender</p>
+        <p class="body-s">Studio lighting and material/CMF studies</p>
+        <p class="body-s">UV unwrapping and texture mapping across complex, seamed forms</p>
+        <div class="vline"></div>
+        <div class="heading-4">Tools &amp; skills</div>
+        <div class="chips"><span class="chip">Blender</span><span class="chip">Sculpting</span><span class="chip">UV unwrapping</span><span class="chip">Texture mapping</span><span class="chip">Shading & materials</span><span class="chip">Lighting</span><span class="chip">Rendering</span><span class="chip">CMF</span></div>
+      </div>
+    </div>
+    <div class="img-grid">
+      <!-- Row 1, the two finished sneaker renders, matched in shape -->
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:2000px; --ar:2000/1077"><img src="images/blender-sneaker-render-front.jpg" alt="Final Blender render of a pink knit sneaker, three-quarter view" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Final render: knit upper, moulded sole and inflated air unit</figcaption>
+    </figure>
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:2000px; --ar:2000/886"><img src="images/blender-sneaker-render-side.jpg" alt="Final Blender render of the sneaker pair from the side" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Final render: side profile, studio three-point lighting</figcaption>
+    </figure>
+      <!-- Row 2, the sneaker in the viewport -->
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:1600px; --ar:1600/1031"><img src="images/blender-sneaker-sculpt.jpg" alt="Blender viewport: the sneaker sculpt in matcap shading over a photo reference" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Viewport: sculpting the upper over photo reference</figcaption>
+    </figure>
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:1600px; --ar:1600/1040"><img src="images/blender-sneaker-straps.jpg" alt="Blender viewport: strap and midsole detail modelled on the sneaker" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Viewport: strap, clip and midsole detail</figcaption>
+    </figure>
+      <!-- Row 3, the two finished helmet renders, both upright -->
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:1400px; --ar:1400/1850"><img src="images/blender-helmet-render.jpg" alt="Final render of the yellow Smith ski helmet with Mips badge" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Final render: shell, vents and retention system</figcaption>
+    </figure>
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:1400px; --ar:1400/1628"><img src="images/blender-helmet-detail.jpg" alt="Close-up render of the helmet shell showing textured paint and the vent lip" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Close-up: CMF study of the textured shell finish</figcaption>
+    </figure>
+      <!-- Row 4, the helmet in the viewport -->
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:1600px; --ar:1600/1375"><img src="images/blender-helmet-headform.jpg" alt="Blender viewport: the helmet mesh fitted over a headform, matcap with wireframe" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Viewport: fitting the shell to a headform</figcaption>
+    </figure>
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:1624px; --ar:1624/1065"><img src="images/blender-shading-workspace.jpg" alt="Blender shading workspace: node editor, viewport and camera preview of the helmet" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Shading workspace: noise and bump nodes driving the shell finish</figcaption>
+    </figure>
+    </div>
+    <div class="also"><div class="also-track"><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span></div></div>
+    <div class="also-grid">
+      <button class="work-card" data-modal="p6" data-meta="Systems &middot; Sustainable Design">
+        <div class="img shot"><img src="images/rooftop-card.jpg" alt="Rendered views of the Roof Top Green rooftop garden" onerror="this.parentNode.classList.add('missing')"></div>
+        <div class="bar">
+          <div>
+            <div class="heading-3">Roof Top Green</div>
+            <div class="body-s desc">A systems-mapping project turning a rooftop into a participatory ecological garden.</div>
+          </div>
+        </div>
+      </button>
+      <button class="work-card" data-modal="p8" data-meta="2024 &middot; Sustainable Business">
+        <div class="img shot"><img src="images/neobean-hero.jpg" alt="Render of the NeoBean Bag in navy neoprene" onerror="this.parentNode.classList.add('missing')"></div>
+        <div class="bar">
+          <div>
+            <div class="heading-3">Neo Shoreline</div>
+            <div class="body-s desc">Premium beach products made from up-cycled neoprene wetsuit offcuts.</div>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- P6: Roof Top Green -->
+<div class="modal" id="p6">
+  <div class="modal-inner">
+    <div class="modal-top">
+      <span class="pill-btn modal-close">&#8592; Back to folio</span>
+      <span class="mono">06 · Sustainable Design</span>
+    </div>
+    <div class="proj-head">
+      <h2 class="proj-title">Roof Top Green</h2>
+      <p class="body-l proj-sub">A systems-mapping project transforming a high-emission student accommodation rooftop into a metabolic, participatory ecological garden.</p>
+      <div class="proj-meta"><span>Discipline: <strong>Systems & sustainable design</strong></span><span class="sep">✦</span><span>Focus: <strong>Rooftop garden</strong></span><span class="sep">✦</span><span>Lens: <strong>Metabolism · participation</strong></span><span class="sep">✦</span><span>Type: <strong>RMIT studio brief</strong></span></div>
+    </div>
+    <figure class="shot-fig">
+      <div class="img-ph shot" style="--natw:1905px; --ar:1905/1036"><img src="images/rooftop-renders.jpg" alt="Four rendered views of the Roof Top Green rooftop garden: pergola, planting beds, pond and paved paths" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Concept renders: pergola, native planting beds, pond and the paved circulation loop</figcaption>
+    </figure>
+    <div class="split">
+      <div class="img-ph split-img shot" style="--natw:1036px; --ar:1036/1390"><img src="images/rooftop-site.jpg" alt="D2 student accommodation, the project site: a multi-storey apartment building in Melbourne" onerror="this.parentNode.classList.add('missing')"></div>
+      <div class="split-card">
+        <span class="label">About this project</span>
+        <p class="body-s">Roof Top Green reframes how CO₂ emissions form inside D2, a transient student accommodation building with low resident agency and no green infrastructure. Systems mapping across actor relationships, metabolic flows, pain points, an iceberg model and causal loops surfaced two leverage points: resident participation and building metabolism. The response is a rooftop garden of native plants, a pond, insect and bird habitat, and a shaded pergola that sequesters carbon while turning residents into active caretakers of the building’s ecology.</p>
+        <div class="vline"></div>
+        <div class="heading-4">Highlights</div>
+        <p class="body-s">Full systems mapping: actors, metabolism, pain points, iceberg & causal loops</p>
+        <p class="body-s">Native plants, pond and habitat structures for CO₂ sequestration</p>
+        <p class="body-s">Designed to build resident participation, not just infrastructure</p>
+        <div class="vline"></div>
+        <div class="heading-4">Tools &amp; skills</div>
+        <div class="chips"><span class="chip">Systems mapping</span><span class="chip">Leverage-point analysis</span><span class="chip">Sustainable design</span><span class="chip">CAD</span><span class="chip">Rendering</span><span class="chip">Stakeholder research</span><span class="chip">Behaviour change</span><span class="chip">Concept visualisation</span><span class="chip">Service design</span></div>
+      </div>
+    </div>
+    <div class="img-grid">
+      <figure class="shot-fig wide">
+      <div class="img-ph shot" style="--natw:2288px; --ar:2288/1638"><img src="images/rooftop-systems-map.png" alt="Systems map of the D2 building: actors, infrastructure, technology and CO2 emissions, with the bio-mediation leverage path picked out in red" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Systems map: actors and flows around D2's emissions, with the bio-mediation leverage path in red</figcaption>
+    </figure>
+      <figure class="shot-fig wide">
+      <div class="img-ph shot" style="--natw:1630px; --ar:1630/827"><img src="images/rooftop-causal-loop.png" alt="Causal loop diagram: plants, pond and insects feed the rooftop garden, raising biodiversity and CO2 sequestered, lowering emissions" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Causal loop: garden to biodiversity to sequestration, closed by resident maintenance</figcaption>
+    </figure>
+    </div>
+    <div class="also"><div class="also-track"><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span></div></div>
+    <div class="also-grid">
+      <button class="work-card" data-modal="p8" data-meta="2024 &middot; Sustainable Business">
+        <div class="img shot"><img src="images/neobean-hero.jpg" alt="Render of the NeoBean Bag in navy neoprene" onerror="this.parentNode.classList.add('missing')"></div>
+        <div class="bar">
+          <div>
+            <div class="heading-3">Neo Shoreline</div>
+            <div class="body-s desc">Premium beach products made from up-cycled neoprene wetsuit offcuts.</div>
+          </div>
+        </div>
+      </button>
+      <button class="work-card" data-modal="p1" data-meta="2026 &middot; Wearable · Honours">
+        <div class="img shot"><img src="images/mouthguard-card.jpg" alt="The concussion detection mouthguard on an AFL ground, LED strip lit" onerror="this.parentNode.classList.add('missing')"></div>
+        <div class="bar">
+          <div>
+            <div class="heading-3">Concussion Detection Mouthguard</div>
+            <div class="body-s desc">Real-time concussion detection in a mouthguard players already wear.</div>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- P8: Neo Shoreline -->
+<div class="modal" id="p8">
+  <div class="modal-inner">
+    <div class="modal-top">
+      <span class="pill-btn modal-close">&#8592; Back to folio</span>
+      <span class="mono">07 · Sustainable Business</span>
+    </div>
+    <div class="proj-head">
+      <h2 class="proj-title">Neo Shoreline</h2>
+      <p class="body-l proj-sub">A business plan for premium beach and leisure products made from up-cycled neoprene wetsuit offcuts, starting with the NeoBean Bag, a water-resistant beanbag built almost entirely from waste material.</p>
+      <div class="proj-meta"><span>Role: <strong>Marketing & material sourcing</strong></span><span class="sep">✦</span><span>Team: <strong>4-person venture</strong></span><span class="sep">✦</span><span>Year: <strong>2024</strong></span></div>
+    </div>
+    <figure class="shot-fig">
+      <div class="img-ph shot" style="--natw:1028px; --ar:1028/725"><img src="images/neobean-hero.jpg" alt="Render of the NeoBean Bag in navy neoprene, showing the seamed panel construction" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>The NeoBean Bag: panelled neoprene shell, seamed from up-cycled offcuts</figcaption>
+    </figure>
+    <div class="split">
+      <div class="img-ph split-img shot" style="--natw:834px; --ar:834/590"><img src="images/neobean-panel-study.jpg" alt="Panel study: the flat cutting pattern for the NeoBean Bag mapped onto the assembled form, each panel colour-coded" onerror="this.parentNode.classList.add('missing')"></div>
+      <div class="split-card">
+        <span class="label">About this project</span>
+        <p class="body-s">Neoprene can’t be recycled and takes centuries to break down, yet manufacturing wetsuits and other neoprene goods leaves large amounts of offcut waste. Neo Shoreline is a business plan built around sourcing that waste from surf/dive shops, wetsuit manufacturers and social media call-outs, and turning it into the NeoBean Bag, a beanbag whose outer panels use higher-grade offcuts and whose filling is shredded from lower-grade scrap. The plan covers user personas, market analysis, sourcing, manufacturing process and financials.</p>
+        <div class="vline"></div>
+        <div class="heading-4">Highlights</div>
+        <p class="body-s">Full-use design: high-grade offcuts for panels, low-grade shredded for filling</p>
+        <p class="body-s">3-channel neoprene sourcing: shops, manufacturers, social call-outs</p>
+        <p class="body-s">User personas & market analysis for beach/outdoor buyers</p>
+        <p class="body-s">Costed financial plan targeting $100k in seed funding</p>
+        <div class="vline"></div>
+        <div class="heading-4">Tools &amp; skills</div>
+        <div class="chips"><span class="chip">Market analysis</span><span class="chip">User personas</span><span class="chip">Sustainability</span><span class="chip">Business planning</span><span class="chip">Circular design</span><span class="chip">Material research</span><span class="chip">Service design</span><span class="chip">Product-service systems</span></div>
+      </div>
+    </div>
+    <div class="img-grid">
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:626px; --ar:626/351"><img src="images/neobean-neoprene-source.jpg" alt="A surfer in a neoprene wetsuit at the water's edge, the source of the offcut material" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>The material: wetsuit neoprene, the offcut stream the product is built from</figcaption>
+    </figure>
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:514px; --ar:514/363"><img src="images/neobean-colourway.jpg" alt="Render of the NeoBean Bag in a black and red colourway" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>Colourway study: panels mixed from whatever grade of offcut comes in</figcaption>
+    </figure>
+    </div>
+    <div class="also"><div class="also-track"><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span></div></div>
+    <div class="also-grid">
+      <button class="work-card" data-modal="p1" data-meta="2026 &middot; Wearable · Honours">
+        <div class="img shot"><img src="images/mouthguard-card.jpg" alt="The concussion detection mouthguard on an AFL ground, LED strip lit" onerror="this.parentNode.classList.add('missing')"></div>
+        <div class="bar">
+          <div>
+            <div class="heading-3">Concussion Detection Mouthguard</div>
+            <div class="body-s desc">Real-time concussion detection in a mouthguard players already wear.</div>
+          </div>
+        </div>
+      </button>
+      <button class="work-card" data-modal="p2" data-meta="UV-C &middot; Medical Design">
+        <div class="img shot"><img src="images/uvc-card.jpg" alt="The UVC tool cleaner in use on a clinical bench" onerror="this.parentNode.classList.add('missing')"></div>
+        <div class="bar">
+          <div>
+            <div class="heading-3">UVC Tool Cleaner</div>
+            <div class="body-s desc">A chemical-free UV-C system that disinfects medical tools for safe reuse.</div>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var openModal = function (id) {
+    var m = document.getElementById(id);
+    if (!m) return;
+    document.querySelectorAll('.modal.open').forEach(function (o) { o.classList.remove('open'); });
+    m.classList.add('open');
+    m.scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+  };
+  var closeModal = function (m) {
+    m.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  document.querySelectorAll('[data-modal]').forEach(function (card) {
+    card.addEventListener('click', function () { openModal(card.getAttribute('data-modal')); });
+  });
+  document.querySelectorAll('.modal').forEach(function (m) {
+    m.addEventListener('click', function (e) { if (e.target === m) closeModal(m); });
+    m.querySelectorAll('.modal-close').forEach(function (btn) {
+      btn.addEventListener('click', function () { closeModal(m); });
+    });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') document.querySelectorAll('.modal.open').forEach(closeModal);
+  });
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Backdrop: sharp at the top, blurring and fading back as the page scrolls */
+  if (!reduced) {
+    var root = document.documentElement;
+    var bgTicking = false;
+    var updateBackdrop = function () {
+      var span = window.innerHeight * 0.9;
+      var p = Math.min(1, Math.max(0, window.scrollY / span));
+      var eased = p * p * (3 - 2 * p);              /* smoothstep */
+      root.style.setProperty('--bg-progress', eased.toFixed(4));
+      bgTicking = false;
+    };
+    window.addEventListener('scroll', function () {
+      if (!bgTicking) { bgTicking = true; requestAnimationFrame(updateBackdrop); }
+    }, { passive: true });
+    window.addEventListener('resize', updateBackdrop, { passive: true });
+    updateBackdrop();
+  }
+
+  /* Split a heading into per-letter spans, grouped by word so wrapping stays word-safe */
+  var splitLetters = function (el, charClass, baseDelay, step, delayProp) {
+    var text = el.textContent;
+    el.textContent = '';
+    el.setAttribute('aria-label', text);
+    var i = 0;
+    text.split(' ').forEach(function (word, wi) {
+      if (wi) { el.appendChild(document.createTextNode(' ')); i++; }
+      var w = document.createElement('span');
+      w.style.display = 'inline-block';
+      w.style.whiteSpace = 'nowrap';
+      w.setAttribute('aria-hidden', 'true');
+      Array.prototype.forEach.call(word, function (ch) {
+        var s = document.createElement('span');
+        s.className = charClass;
+        s.textContent = ch;
+        if (delayProp) { s.style.setProperty(delayProp, (baseDelay + i * step) + 's'); }
+        else { s.style.animationDelay = (baseDelay + i * step) + 's'; }
+        w.appendChild(s);
+        i++;
+      });
+      el.appendChild(w);
+    });
+  };
+
+  /* Hero heading — letter-by-letter blur type-in */
+  var title = document.getElementById('heroTitle');
+  if (title && !reduced) { splitLetters(title, 'hchar', 0.15, 0.045, null); }
+
+  /* Meta ticker pills — built from each card's data-meta, content doubled for a seamless loop */
+  document.querySelectorAll('.work-card[data-meta]').forEach(function (card) {
+    var meta = card.getAttribute('data-meta') + ' · ';
+    var pill = document.createElement('div');
+    pill.className = 'ticker-pill';
+    pill.setAttribute('aria-hidden', 'true');
+    var track = document.createElement('div');
+    track.className = 'ticker-track';
+    for (var half = 0; half < 2; half++) {
+      for (var r = 0; r < 4; r++) {
+        var sp = document.createElement('span');
+        sp.textContent = meta;
+        track.appendChild(sp);
+      }
+    }
+    pill.appendChild(track);
+    card.appendChild(pill);
+  });
+
+  /* Project overlays — stagger their content and type the title in on every open */
+  document.querySelectorAll('.modal-inner').forEach(function (inner) {
+    Array.prototype.forEach.call(inner.children, function (kid, i) {
+      kid.classList.add('mrev');
+      kid.style.setProperty('--d', (0.08 + i * 0.08) + 's');
+    });
+    var h2 = inner.querySelector('h2');
+    if (h2 && !reduced) { splitLetters(h2, 'mchar', 0.2, 0.03, '--d'); }
+  });
+
+  /* Fade-up reveals on scroll */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduced) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+  }
+})();
+</script>
+
+</body>
+</html>
