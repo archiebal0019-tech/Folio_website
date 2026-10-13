@@ -357,6 +357,8 @@
   .work-card .img.shot { padding: 0; }
   .work-card .img > img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .work-card .img.missing > img { display: none; }
+  /* Laser Alignment System card: fill the frame, then slide the crop down the photo */
+  .work-card .img > img.lidar-card { position: absolute; inset: 0; object-position: 50% 28%; }
   .modal-block { display: flex; flex-direction: column; gap: 20px; }
   .modal-block .body-s { color: var(--grey-text); max-width: 720px; }
   .hl { display: flex; flex-direction: column; gap: 10px; }
@@ -518,6 +520,16 @@
         <div>
           <div class="heading-3">UVC Tool Cleaner</div>
           <div class="body-s desc">A chemical-free UV-C system that disinfects medical tools for safe reuse.</div>
+        </div>
+      </div>
+    </button>
+
+    <button class="work-card reveal" data-modal="p9" data-meta="2026 &middot; Freelance &middot; Fixture Design">
+      <div class="img shot"><img class="lidar-card" src="images/wa-lidar-hero.jpg" alt="The LIDAR unit in its cradle with the CNC aluminium plate against its lenses, seen from above" onerror="this.parentNode.classList.add('missing')"></div>
+      <div class="bar">
+        <div>
+          <div class="heading-3">Laser Alignment System</div>
+          <div class="body-s desc">A 3D-printed cradle and CNC-machined plate for WA Police laser alignment.</div>
         </div>
       </div>
     </button>
@@ -1134,6 +1146,79 @@
           <div>
             <div class="heading-3">Concussion Detection Mouthguard</div>
             <div class="body-s desc">Real-time concussion detection in a mouthguard players already wear.</div>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- P9: Laser Alignment System -->
+<div class="modal" id="p9">
+  <div class="modal-inner">
+    <div class="modal-top">
+      <span class="pill-btn modal-close">&#8592; Back to folio</span>
+      <span class="mono">Freelance · Fixture Design</span>
+    </div>
+    <div class="proj-head">
+      <h2 class="proj-title">Laser Alignment System</h2>
+      <p class="body-l proj-sub">A 3D-printed cradle and CNC-machined aluminium plate that locate a handheld LIDAR unit for laser alignment, made for WA Police.</p>
+      <div class="proj-meta"><span>Client: <strong>WA Police</strong></span><span class="sep">✦</span><span>Discipline: <strong>Fixture &amp; mechanical design</strong></span><span class="sep">✦</span><span>Made: <strong>CAD · 3D print · CNC</strong></span><span class="sep">✦</span><span>Type: <strong>Freelance, Ballinger Technologies</strong></span></div>
+    </div>
+    <figure class="shot-fig">
+      <div class="img-ph shot" style="--natw:1200px; --ar:1200/1600"><img src="images/wa-lidar-hero.jpg" alt="The LIDAR unit in its cradle with the CNC aluminium plate against its lenses, seen from above" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>The LIDAR unit in its 3D-printed cradle, with the CNC plate against its lenses</figcaption>
+    </figure>
+    <div class="split">
+      <div class="img-ph split-img shot" style="--natw:1200px; --ar:1200/1600"><img src="images/wa-lidar-front.jpg" alt="The LIDAR unit seated in the white cradle, facing the alignment optics" onerror="this.parentNode.classList.add('missing')"></div>
+      <div class="split-card">
+        <span class="label">About this project</span>
+        <p class="body-s">A laser alignment system for WA Police LIDAR units. I designed and made two parts of it: the white 3D-printed cradle that holds the handheld unit, and the CNC-machined aluminium plate that sits against the alignment optics, with openings to suit the unit's three lenses.</p>
+        <div class="vline"></div>
+        <div class="heading-4">Highlights</div>
+        <p class="body-s">Custom cradle shaped to the handheld unit, with clearance for the grip and trigger</p>
+        <p class="body-s">CNC-machined aluminium plate with openings matched to the unit's lenses</p>
+        <p class="body-s">Designed, printed and machined end to end</p>
+        <div class="vline"></div>
+        <div class="heading-4">Tools &amp; skills</div>
+        <div class="chips"><span class="chip">CAD</span><span class="chip">3D printing</span><span class="chip">CNC machining</span><span class="chip">Fixture design</span><span class="chip">Design for manufacture</span><span class="chip">Prototyping</span></div>
+      </div>
+    </div>
+    <div class="img-grid">
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:1200px; --ar:1200/1600"><img src="images/wa-lidar-plate.jpg" alt="CNC-machined aluminium plate with three-lobe openings" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>The CNC-machined aluminium plate</figcaption>
+    </figure>
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:1200px; --ar:1200/1600"><img src="images/wa-lidar-lens.jpg" alt="The LIDAR unit in the cradle, its three lenses facing the camera" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>The unit in its cradle, lenses facing out</figcaption>
+    </figure>
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:1200px; --ar:1200/1600"><img src="images/wa-lidar-cradle.jpg" alt="The white cradle on the alignment fixture, aluminium plate behind it" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>The cradle on the alignment fixture</figcaption>
+    </figure>
+      <figure class="shot-fig pair">
+      <div class="img-ph shot" style="--natw:1200px; --ar:1200/1600"><img src="images/wa-lidar-above.jpg" alt="Top view of the unit in the cradle, face against the alignment optics" onerror="this.parentNode.classList.add('missing')"></div>
+      <figcaption>From above: the unit against the alignment optics</figcaption>
+    </figure>
+    </div>
+    <div class="also"><div class="also-track"><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span><span>You might also like</span></div></div>
+    <div class="also-grid">
+      <button class="work-card" data-modal="p1" data-meta="2026 &middot; Wearable · Honours">
+        <div class="img shot"><img src="images/mouthguard-card.jpg" alt="The concussion detection mouthguard on an AFL ground, LED strip lit" onerror="this.parentNode.classList.add('missing')"></div>
+        <div class="bar">
+          <div>
+            <div class="heading-3">Concussion Detection Mouthguard</div>
+            <div class="body-s desc">Real-time concussion detection in a mouthguard players already wear.</div>
+          </div>
+        </div>
+      </button>
+      <button class="work-card" data-modal="p2" data-meta="UV-C &middot; Medical Design">
+        <div class="img shot"><img src="images/uvc-card.jpg" alt="The UVC tool cleaner in use on a clinical bench" onerror="this.parentNode.classList.add('missing')"></div>
+        <div class="bar">
+          <div>
+            <div class="heading-3">UVC Tool Cleaner</div>
+            <div class="body-s desc">A chemical-free UV-C system that disinfects medical tools for safe reuse.</div>
           </div>
         </div>
       </button>
